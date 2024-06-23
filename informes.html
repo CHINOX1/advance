@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Informes Médicos</title>
+    <link rel="stylesheet" href="css/informe.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="img/imagenkine.jpeg" alt="Logo KINEADVANCE" class="logo">
+        </div>
+        <nav>
+            <!-- Puedes agregar elementos de navegación si es necesario -->
+        </nav>
+    </header>
+    <div class="container">
+        <div class="benefits-container">
+            
+            <button id="btnDescargarInforme">Descargar Informe Médico PDF</button>
+            <table id="tablaDatos">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>RUT</th>
+                        <th>Edad</th>
+                        <th>Fecha</th>
+                        <th>Motivo de Consulta</th>
+                        <th>Enfermedad Actual</th>
+                        <th>Examen Físico</th>
+                        <th>Diagnóstico</th>
+                        <th>Indicaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyDatos">
+                    <!-- Aquí se añadirán dinámicamente las filas de datos -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <header>
+        <h1>Tabla de Sesiones Médicas</h1>
+    </header>
+    <div class="container">
+        <h2>Sesiones Médicas</h2>
+        <button id="btnDescargarSesiones">Descargar Sesiones Médicas PDF</button>
+        <table id="tablaSesiones">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>sesion</th>
+                    <th>rut</th>
+                    <th>Medico</th>
+                    <th>Evolucion</th>
+                    <th>Examen Fisico</th>
+                    <th>Actitud Funcional</th>
+                    <th>Dolor Movimiento</th>
+                    <th>Dolor Reposo</th>
+                    <th>Evaluacion Muscular</th>
+                    <th>Medicion Articular</th>
+                    <th>Fuerza Muscular</th>
+                    <th>Observaciones</th>
+                    <!-- Agrega aquí más columnas según tus necesidades -->
+                </tr>
+            </thead>
+            <tbody id="tbodySesiones">
+                <!-- Aquí se añadirán dinámicamente las filas de sesiones -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Cargar Firebase SDK y los scripts de Main como módulos -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module">
+        import { descargarInformePDF, descargarSesionesPDF } from './js/main.js';
+
+        // Agregar eventos de clic a los botones
+        document.getElementById('btnDescargarInforme').addEventListener('click', descargarInformePDF);
+        document.getElementById('btnDescargarSesiones').addEventListener('click', descargarSesionesPDF);
+    </script>
+</body>
+</html>

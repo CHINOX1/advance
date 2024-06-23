@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - KINEADVANCE</title>
+    <link rel="stylesheet" href="css/stilo.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="img/imagenkine.jpeg" alt="Logo KINEADVANCE" class="logo">
+        </div>
+        <nav>
+            <a href="inicio.html" class="nav-link">Regresar al inicio</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="login-container">
+            <img src="img/imagenkine.jpeg" alt="Logo KINEADVANCE" class="logo">
+            <h2>Inicio de Sesión</h2>
+            <form id="rutForm">
+                <input type="text" id="rutInput" name="rut" placeholder="RUT" required>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+        <div >
+        </div>
+        <div class="benefits-container">
+            <h3>Conoce los beneficios de KINEADVANCE</h3>
+            <div class="images">
+                <img src="img/archivo historico.png" alt="Beneficio 1">
+                <img src="img/revisa horario.png" alt="Beneficio 2">
+                <img src="img/toda la if familiar.png" alt="Beneficio 3">
+                <img src="img/ver resultador en linea.png" alt="Beneficio 4">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="https://www.instagram.com"><img src="img/insta.avif" alt="Instagram"></a>
+        <a href="https://www.whatsapp.com"><img src="img/whasap.jpg" alt="WhatsApp"></a>
+        <a href="https://www.youtube.com"><img src="img/youtubee.jpg" alt="YouTube"></a>
+        <a href="#"><img src="img/ubicacion.png" alt="Ubicación"></a>
+        <a href="#">Ayuda</a>
+    </footer>
+    
+    <!-- Cargar jQuery desde un CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Cargar Pizzeeria después de jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizza/0.2.1/js/pizza.min.js"></script>
+    <!-- Cargar los scripts de Firebase y Main -->
+    <script type="module" src="js/firebase.js"></script>
+    <script>
+        // Agregar un listener para el evento submit del formulario
+        document.getElementById('rutForm').addEventListener('submit', function(event) {
+            // Obtener el valor del RUT
+            const rut = document.getElementById('rutInput').value.trim();
+            
+            // Redirigir a informes.html con el RUT como parámetro en la URL
+            window.location.href = `informes.html?rut=${rut}`;
+    
+            // Prevenir el comportamiento predeterminado del formulario (evitar que se envíe)
+            event.preventDefault();
+        });
+    
+        // Obtener el RUT de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const rutFromUrl = urlParams.get('rut');
+    
+        // Llenar el campo de RUT si se proporciona en la URL
+        if (rutFromUrl) {
+            document.getElementById('rutInput').value = rutFromUrl;
+        }
+    
+        // Ahora podrías llamar a una función que llene la tabla con los informes usando el RUT obtenido
+        // Por ejemplo, podrías llamar a una función que haga una solicitud a Firebase para obtener los informes médicos del RUT dado.
+    </script>
+    
+</body>
+</html>

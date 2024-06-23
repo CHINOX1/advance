@@ -1,0 +1,178 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('img/kinesiología-825x360.png'); /* Ajusta la ruta según la ubicación real de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
+}
+
+/* Estilos para la reserva de hora */
+.reservation-container {
+    position: absolute;
+    top: 50%;
+    right: 0; /* Alineado a la derecha */
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+    padding: 20px;
+    margin-top: 20px; /* Ajuste del margen superior */
+}
+
+/* Estilos para la cabecera principal */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: #0a0a0a;
+}
+
+/* Estilos para el carrusel de imágenes */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    width: calc(100% - 20px); /* Ajuste del ancho del carrusel */
+    margin-right: 20px; /* Ajuste del margen derecho para separar del contenedor de reserva */
+}
+
+.slide {
+    display: none;
+    width: 50%; /* Reducir el ancho al 50% del contenedor */
+}
+
+.slide.active {
+    display: block;
+}
+
+.carousel img {
+    width: 100%; /* Ajustar la imagen al 100% del ancho del contenedor */
+    height: auto;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-nav button {
+    background-color: #151616;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.carousel-nav button:hover {
+    background-color: #0c0c0c;
+}
+
+
+/* Estilos para los contenedores de secciones */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+}
+
+.medical-results,
+.quotes,
+.patient-guide {
+    flex-basis: calc(33.33% - 20px); /* Establecer el ancho base de cada sección */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+    padding: 20px;
+    margin-bottom: 20px; /* Espacio entre las secciones */
+    box-sizing: border-box; /* Incluir padding y border en el ancho y alto */
+}
+
+/* Ajuste para el margen derecho de la última sección */
+.patient-guide {
+    margin-right: 0;
+}
+
+/* Limpiar flotantes */
+.content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+/* Estilos para el footer */
+footer {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+footer div {
+    flex: 1;
+    margin-right: 20px;
+}
+
+footer h2 {
+    color: #141414;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el contenedor de las tres secciones */
+.section-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px; /* Espacio entre el carrusel y las secciones */
+}
+
+/* Estilos para los contenedores de secciones */
+.medical-results,
+.quotes,
+.patient-guide {
+    flex-basis: calc(33.33% - 20px); /* Establecer el ancho base de cada sección */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+    padding: 20px;
+    box-sizing: border-box; /* Incluir padding y border en el ancho y alto */
+}
+
+/* Ajuste para el margen derecho de la última sección */
+.patient-guide {
+    margin-right: 0;
+}
+
+
