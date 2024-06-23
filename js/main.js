@@ -1,4 +1,3 @@
-
 import { db } from './firebase.js';
 import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
@@ -10,6 +9,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Obtener rut de la URL
         const urlParams = new URLSearchParams(window.location.search);
         const rut = urlParams.get('rut');
+
+        if (!rut) {
+            throw new Error("RUT no encontrado en la URL");
+        }
 
         // Buscar informes médicos por el rut
         const informesQuery = query(collection(db, 'informes_medicos'), where('rut', '==', rut));
@@ -68,6 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 export function descargarInformePDF() {
+    const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     doc.text(20, 20, 'Informe Médico');
 
@@ -78,6 +82,7 @@ export function descargarInformePDF() {
 }
 
 export function descargarSesionesPDF() {
+    const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
     doc.text(20, 20, 'Sesiones Médicas');
 
@@ -86,5 +91,3 @@ export function descargarSesionesPDF() {
 
     doc.save('SesionesMedicas.pdf');
 }
-
-// Asignar los eventos de clic a los botones

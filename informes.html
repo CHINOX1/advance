@@ -6,6 +6,8 @@
     <title>Tabla de Informes Médicos</title>
     <link rel="stylesheet" href="css/informe.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
     <header>
@@ -18,7 +20,6 @@
     </header>
     <div class="container">
         <div class="benefits-container">
-            
             <button id="btnDescargarInforme">Descargar Informe Médico PDF</button>
             <table id="tablaDatos">
                 <thead>
@@ -70,12 +71,10 @@
             </tbody>
         </table>
     </div>
-    
     <!-- Cargar Firebase SDK y los scripts de Main como módulos -->
     <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-    <script type="module" src="js/firebase.js"></script>
     <script type="module">
         import { descargarInformePDF, descargarSesionesPDF } from './js/main.js';
 
