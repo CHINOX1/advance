@@ -1,6 +1,5 @@
 import { db } from './firebase.js';
 import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
 document.addEventListener('DOMContentLoaded', async () => {
     const tbodyDatos = document.getElementById('tbodyDatos');
     const tbodySesiones = document.getElementById('tbodySesiones');
@@ -17,6 +16,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Buscar informes médicos por el rut
         const informesQuery = query(collection(db, 'informes_medicos'), where('rut', '==', rut));
         const informesSnapshot = await getDocs(informesQuery);
+        
+        let informeData = null;
         informesSnapshot.forEach(doc => {
             const data = doc.data();
             const filaDato = document.createElement('tr');
@@ -32,6 +33,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <td>${data.indicaciones}</td>
             `;
             tbodyDatos.appendChild(filaDato);
+
+            // Almacenar los datos del informe para uso posterior
+            informeData = data;
         });
 
         // Buscar sesiones médicas por el rut
@@ -65,29 +69,117 @@ document.addEventListener('DOMContentLoaded', async () => {
             tbodySesiones.appendChild(filaSesion);
         });
 
+        // Asignar el evento de clic al botón después de obtener los datos
+        document.getElementById('btnDescargarInforme').addEventListener('click', () => {
+            if (informeData) {
+                crearInformePDF(
+                    informeData.nombre,
+                    informeData.rut,
+                    informeData.edad,
+                    informeData.motivo_consulta,
+                    informeData.enfermedad_actual,
+                    informeData.examen_fisico,
+                    informeData.diagnostico,
+                    informeData.indicaciones
+                );
+            } else {
+                console.error('No se encontró ningún informe médico para el RUT proporcionado.');
+            }
+        });
+
     } catch (error) {
         console.error('Error al obtener los datos desde Firebase:', error);
     }
 });
 
-export function descargarInformePDF() {
+
+export function crearInformePDF(nombre, rut, edad, motivo_consulta, enfermedad_actual, examen_fisico, diagnostico, indicaciones) {
     const { jsPDF } = window.jspdf;
+
+    // Crear documento PDF
     const doc = new jsPDF();
-    doc.text(20, 20, 'Informe Médico');
 
-    const element = document.getElementById('tablaDatos');
-    doc.autoTable({ html: element });
+    // Agregar encabezado con la fecha actual
+    const fecha_actual = new Date().toLocaleDateString();
+    doc.text(`Fecha: ${fecha_actual}`, 20, 20);
 
+    // Agregar información del paciente
+    doc.text(`Nombre: ${nombre || ''}`, 20, 30);
+    doc.text(`RUT: ${rut || ''}`, 20, 40);
+    doc.text(`Edad: ${edad || ''}`, 20, 50);
+
+    // Agregar título "Informe Médico"
+    doc.setFontSize(18);
+    doc.text('INFORME MÉDICO', 105, 65, { align: 'center' });
+
+    // Agregar sección de motivo de consulta
+    doc.setFontSize(12);
+    doc.text('Motivo de Consulta', 20, 80);
+    doc.text(motivo_consulta || '', 20, 90);
+
+    // Agregar sección de enfermedad actual
+    doc.text('Enfermedad Actual', 20, 120);
+    doc.text(enfermedad_actual || '', 20, 130);
+
+    // Agregar sección de examen físico
+    doc.text('Examen Físico', 20, 160);
+    doc.text(examen_fisico || '', 20, 170);
+
+    // Agregar sección de diagnóstico
+    doc.text('Diagnóstico', 20, 200);
+    doc.text(diagnostico || '', 20, 210);
+
+    // Agregar sección de indicaciones
+    doc.text('Indicaciones', 20, 240);
+    doc.text(indicaciones || '', 20, 250);
+
+    // Agregar firma del médico centrada
+    doc.text('Dr. [Nombre del Médico]', 105, doc.internal.pageSize.height - 30, { align: 'center' });
+    doc.text('Traumatología y Ortopedia', 105, doc.internal.pageSize.height - 20, { align: 'center' });
+
+    // Guardar el documento PDF
     doc.save('InformeMedico.pdf');
 }
 
+
+//xport function descargarInformePDF() {
+   // const { jsPDF } = window.jspdf;
+    //const doc = new jsPDF();
+
+    //doc.text(20, 20, 'Informe Médico');
+
+    //const element = document.getElementById('tablaDatos');
+    //doc.autoTable({
+        //html: element,
+        //styles: {
+           // fontSize: 10,
+           // cellPadding: 2,
+            //valign: 'middle',
+            //halign: 'center',
+       // },
+       // margin: { top: 30 },
+       // startY: 40,
+       // theme: 'striped' // Opcional: Aplica un tema predefinido
+    //});
+
+   // doc.save('InformeMedico.pdf');
+//}
+
+
 export function descargarSesionesPDF() {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    doc.text(20, 20, 'Sesiones Médicas');
+    const doc = new jsPDF('l', 'pt'); // 'l' para orientación de página horizontal
+
+    doc.text(100, 20, 'Sesiones Médicas');
 
     const element = document.getElementById('tablaSesiones');
-    doc.autoTable({ html: element });
+    doc.autoTable({
+        html: element,
+        margin: { top: 30 },
+        startY: 40,
+    });
 
     doc.save('SesionesMedicas.pdf');
 }
+
+
