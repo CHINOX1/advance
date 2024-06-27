@@ -51,16 +51,16 @@
             <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>sesion</th>
-                    <th>rut</th>
-                    <th>Medico</th>
-                    <th>Evolucion</th>
-                    <th>Examen Fisico</th>
+                    <th>Sesión</th>
+                    <th>RUT</th>
+                    <th>Médico</th>
+                    <th>Evolución</th>
+                    <th>Examen Físico</th>
                     <th>Actitud Funcional</th>
                     <th>Dolor Movimiento</th>
                     <th>Dolor Reposo</th>
-                    <th>Evaluacion Muscular</th>
-                    <th>Medicion Articular</th>
+                    <th>Evaluación Muscular</th>
+                    <th>Medición Articular</th>
                     <th>Fuerza Muscular</th>
                     <th>Observaciones</th>
                     <!-- Agrega aquí más columnas según tus necesidades -->
@@ -77,10 +77,6 @@
     <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
     <script type="module">
         import { crearInformePDF, descargarSesionesPDF } from './js/main.js';
-
-        // Agregar eventos de clic a los botones
-        document.getElementById('btnDescargarInforme').addEventListener('click',crearInformePDF);
-        document.getElementById('btnDescargarSesiones').addEventListener('click', descargarSesionesPDF);
     </script>
 </body>
 </html>

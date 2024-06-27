@@ -142,28 +142,7 @@ export function crearInformePDF(nombre, rut, edad, motivo_consulta, enfermedad_a
 }
 
 
-//xport function descargarInformePDF() {
-   // const { jsPDF } = window.jspdf;
-    //const doc = new jsPDF();
 
-    //doc.text(20, 20, 'Informe Médico');
-
-    //const element = document.getElementById('tablaDatos');
-    //doc.autoTable({
-        //html: element,
-        //styles: {
-           // fontSize: 10,
-           // cellPadding: 2,
-            //valign: 'middle',
-            //halign: 'center',
-       // },
-       // margin: { top: 30 },
-       // startY: 40,
-       // theme: 'striped' // Opcional: Aplica un tema predefinido
-    //});
-
-   // doc.save('InformeMedico.pdf');
-//}
 
 
 export function descargarSesionesPDF() {
