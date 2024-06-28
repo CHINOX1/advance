@@ -1,5 +1,6 @@
 import { db } from './firebase.js';
 import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
 document.addEventListener('DOMContentLoaded', async () => {
     const tbodyDatos = document.getElementById('tbodyDatos');
     const tbodySesiones = document.getElementById('tbodySesiones');
@@ -51,25 +52,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Crear una nueva fila para la tabla
             const filaSesion = document.createElement('tr');
             filaSesion.innerHTML = `
-                <td>${data.fecha}</td>
-                <td>${data.sesion}</td>
                 <td>${data.rut}</td>
-                <td>${data.medico}</td>
+                <td>${data.sesion}</td>
+                <td>${data.fecha}</td>
                 <td>${data.evolucion}</td>
-                <td>${data.examen_fisico}</td>
-                <td>${data.actitud_funcional}</td>
-                <td>${data.dolor_movimiento}</td>
                 <td>${data.dolor_reposo}</td>
+                <td>${data.dolor_movimiento}</td>
+                <td>${data.rango_articular}</td>
                 <td>${data.evaluacion_muscular}</td>
-                <td>${data.medicion_articular}</td>
-                <td>${data.fuerza_muscular}</td>
-                <td>${data.observaciones}</td>
+                <td>${data.tratamiento_kinesico}</td>
             `;
             // Agregar la fila a la tabla
             tbodySesiones.appendChild(filaSesion);
         });
 
-        // Asignar el evento de clic al botón después de obtener los datos
+        // Asignar el evento de clic al botón de informe después de obtener los datos
         document.getElementById('btnDescargarInforme').addEventListener('click', () => {
             if (informeData) {
                 crearInformePDF(
@@ -87,11 +84,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
+        // Asignar el evento de clic al botón de sesiones después de obtener los datos
+        document.getElementById('btnDescargarSesiones').addEventListener('click', () => {
+            descargarSesionesPDF();
+        });
+
     } catch (error) {
         console.error('Error al obtener los datos desde Firebase:', error);
     }
 });
-
 
 export function crearInformePDF(nombre, rut, edad, motivo_consulta, enfermedad_actual, examen_fisico, diagnostico, indicaciones) {
     const { jsPDF } = window.jspdf;
@@ -141,10 +142,6 @@ export function crearInformePDF(nombre, rut, edad, motivo_consulta, enfermedad_a
     doc.save('InformeMedico.pdf');
 }
 
-
-
-
-
 export function descargarSesionesPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('l', 'pt'); // 'l' para orientación de página horizontal
@@ -160,5 +157,3 @@ export function descargarSesionesPDF() {
 
     doc.save('SesionesMedicas.pdf');
 }
-
-

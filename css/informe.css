@@ -17,10 +17,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo de la cabecera */
 header {
-    background-color: #003366;
-    color: white;
+    background-color: rgba(230, 247, 255, 0.8); /* Color de fondo con transparencia */
+    color: rgb(14, 13, 13);
     padding: 10px 0;
     text-align: center;
 }
@@ -57,4 +56,16 @@ table tr:nth-child(even) {
 
 table tr:hover {
     background-color: #ddd;
+}
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffff;
+    background-color: #003366;
+    border: none;
+    border-radius: 5px;
 }

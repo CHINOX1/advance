@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Disponibilidad del Doctor - Integra Medica</title>
+    <link rel="stylesheet" href="css/kinehora.css">
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+    <link rel="stylesheet" href="css/fondo.css">
+    <a href="inicio.html" class="nav-link">Regresar al inicio</a>
+</head>
+<body>
+    <div class="container">
+        <h1>Disponibilidad de la Semana</h1>
+        <h2>Seleccionar Días y Horas Disponibles</h2>
+        <form id="disponibilidadForm">
+            <label for="semana">Semana:</label>
+            <input type="week" id="semana" name="semana" required>
+            
+            <div id="diasDisponibles">
+                <label><input type="checkbox" name="dia" value="Lunes"> Lunes</label>
+                <label><input type="checkbox" name="dia" value="Martes"> Martes</label>
+                <label><input type="checkbox" name="dia" value="Miércoles"> Miércoles</label>
+                <label><input type="checkbox" name="dia" value="Jueves"> Jueves</label>
+                <label><input type="checkbox" name="dia" value="Viernes"> Viernes</label>
+                <label><input type="checkbox" name="dia" value="Sábado"> Sábado</label>
+                <label><input type="checkbox" name="dia" value="Domingo"> Domingo</label>
+            </div>
+
+            <div id="horasDisponibles">
+                <label><input type="checkbox" name="hora" value="08:00"> 08:00</label>
+                <label><input type="checkbox" name="hora" value="09:00"> 09:00</label>
+                <label><input type="checkbox" name="hora" value="10:00"> 10:00</label>
+                <label><input type="checkbox" name="hora" value="11:00"> 11:00</label>
+                <label><input type="checkbox" name="hora" value="12:00"> 12:00</label>
+                <label><input type="checkbox" name="hora" value="13:00"> 13:00</label>
+                <label><input type="checkbox" name="hora" value="14:00"> 14:00</label>
+                <label><input type="checkbox" name="hora" value="15:00"> 15:00</label>
+                <label><input type="checkbox" name="hora" value="16:00"> 16:00</label>
+                <label><input type="checkbox" name="hora" value="17:00"> 17:00</label>
+                <label><input type="checkbox" name="hora" value="18:00"> 18:00</label>
+                <label><input type="checkbox" name="hora" value="19:00"> 19:00</label>
+            </div>
+            <button type="submit">Guardar Disponibilidad</button>
+        </form>
+        <button id="verReservas">Ver Reservas</button>
+        <div id="reservasContainer"></div>
+    </div>
+
+    <script type="module" src="js/kinehora.js"></script>
+</body>
+</html>

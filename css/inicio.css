@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('img/kinesiología-825x360.png'); /* Ajusta la ruta según la ubicación real de tu imagen */
+    background-image: url('img/kinesiología-825x360.png'); /* Ajusta  imagen */
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
@@ -15,14 +15,14 @@ body {
     top: 50%;
     right: 0; /* Alineado a la derecha */
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+    background-color: rgba(230, 247, 255, 0.8); /* Fondo transparente */
     padding: 20px;
     margin-top: 20px; /* Ajuste del margen superior */
 }
 
 /* Estilos para la cabecera principal */
 .main-header {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(230, 247, 255, 0.8);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -30,7 +30,7 @@ body {
 }
 
 .logo img {
-    max-width: 100px;
+    max-width: 150.5px;
 }
 
 nav ul {
@@ -111,7 +111,7 @@ nav ul li a:hover {
 .quotes,
 .patient-guide {
     flex-basis: calc(33.33% - 20px); /* Establecer el ancho base de cada sección */
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+    background-color: rgba(230, 247, 255, 0.8); /* Fondo transparente */
     padding: 20px;
     margin-bottom: 20px; /* Espacio entre las secciones */
     box-sizing: border-box; /* Incluir padding y border en el ancho y alto */
@@ -133,7 +133,7 @@ nav ul li a:hover {
 
 /* Estilos para el footer */
 footer {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(230, 247, 255, 0.8);
     padding: 20px;
     margin-top: 20px;
     display: flex;
@@ -165,7 +165,7 @@ footer h2 {
 .quotes,
 .patient-guide {
     flex-basis: calc(33.33% - 20px); /* Establecer el ancho base de cada sección */
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo transparente */
+    background-color: rgba(230, 247, 255, 0.8); /* Fondo transparente */
     padding: 20px;
     box-sizing: border-box; /* Incluir padding y border en el ancho y alto */
 }

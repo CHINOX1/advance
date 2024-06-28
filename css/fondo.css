@@ -1,0 +1,9 @@
+body {
+    background-image: url('img/kinesiología-825x360.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+}

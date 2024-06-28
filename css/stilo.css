@@ -1,4 +1,3 @@
-@import url('img/kinesiología-825x360.png');
 
 @keyframes rotation {
     from {
@@ -17,7 +16,7 @@ header {
     top: 0; /* Alinear la cabecera en la parte superior */
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.2); /* Fondo semi-transparente para la cabecera */
+    background-color: rgba(230, 247, 255, 0.8);; /* Fondo semi-transparente para la cabecera */
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -39,10 +38,10 @@ nav {
 }
 
 .nav-link {
-    color: white;
+    color: rgb(15, 15, 15);
     text-decoration: none;
     padding: 12px 24px; /* Aumenta el padding para dar más espacio al botón */
-    background-color: #007bff;
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
@@ -57,7 +56,7 @@ nav {
 /* Ajustes para el contenido principal */
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url('img/kinesiología-825x360.png');
+    background-image: url('imagenes/kine1.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
