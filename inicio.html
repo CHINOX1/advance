@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Clínica - Inicio</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/inicio.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="identificarse.html"> IDENTICARSE</a></li>
+                <li><a href="identificarse.html">IDENTIFICARSE</a></li>
                 <li><a href="#">ESPECIALISTAS</a></li>
                 <li><a href="prueba.html">DESCARGAR INFORMES</a></li>
             </ul>
@@ -43,7 +44,7 @@
 
         <!-- Contenedor lateral -->
         <aside class="reservation-container">
-            <div class="reservation">
+            <!--<div class="reservation">
                 <h3>RESERVA TU HORA</h3>
                 <ul>
                 <li><a href="paceinte.html">agendar hora </a></li>
@@ -52,7 +53,7 @@
                 <ul>
                 <li><a href="#">Ver mis exámenes</a></li>
                 </ul>
-            </div>
+            </div> -->
         </aside>
     </section>
 
@@ -76,8 +77,18 @@
         </section>
     </section>
     
-
-   
+    <!-- Sección de Comentarios -->
+    <section class="comments-section">
+        <h2>Comentarios</h2>
+        <form id="comment-form">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+            <textarea id="comentario" placeholder="Comentario" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="comments-container"></div>
+        <button id="prev-comment" class="nav-arrow">&lt;</button>
+        <button id="next-comment" class="nav-arrow">&gt;</button>
     </section>
 
     <!-- Footer con certificaciones, contacto y redes sociales -->
@@ -96,6 +107,7 @@
         </div>
     </footer>
 
-    <script src="js/inicio.js"></script>
+    <!-- Usa el tipo module para el script -->
+    <script type="module" src="js/inicio.js"></script>
 </body>
 </html>
