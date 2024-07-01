@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="css/inicio.css">
 </head>
 <body>
-    <!-- Barra de búsqueda -->
-    <header class="search-bar">
-        <input type="text" placeholder="Buscar...">
-        <button type="button">Buscar</button>
-    </header>
 
     <!-- Cabecera principal -->
     <header class="main-header">
@@ -34,20 +29,20 @@
             <div class="slide active">
                 <img src="imagenes/kine1.jpg" alt="Imagen 1">
             </div>
-            <div class="slide">
+            <!--<div class="slide">
                 <img src="imagenes/kine2.jpg" alt="Imagen 2">
-            </div>
+            </div>-->
             <div class="slide">
                 <img src="imagenes/kine3.jpg" alt="Imagen 3">
-            </div>
         </section>
 
         <!-- Contenedor lateral -->
         <aside class="reservation-container">
+            <!-- Sección de reserva de hora, si es necesaria -->
             <!--<div class="reservation">
                 <h3>RESERVA TU HORA</h3>
                 <ul>
-                <li><a href="paceinte.html">agendar hora </a></li>
+                <li><a href="paceinte.html">Agendar hora</a></li>
                 </ul>
                 <h4>SERVICIOS EN LÍNEA</h4>
                 <ul>
@@ -67,7 +62,7 @@
         <!-- Sección de Cotizaciones -->
         <section class="quotes">
             <h2>Cotizaciones</h2>
-            <li><a href="cotizaciones.html">Generar Cotizaciones</a></li>
+            <li><a href="cotizaciones.html" class="nav-link">Generar Cotizaciones</a></li>
         </section>
     
         <!-- Sección de Guía para Pacientes -->
@@ -80,22 +75,27 @@
     <!-- Sección de Comentarios -->
     <section class="comments-section">
         <h2>Comentarios</h2>
+        <div id="comments-container">
+            <div id="comments-wrapper"></div>
+        </div>
+        <button id="add-comment-btn">Agregar un comentario</button>
+    </section>
+
+    <!-- Sidebar para agregar comentarios -->
+    <div id="comment-sidebar">
+        <h2>Agregar un Comentario</h2>
         <form id="comment-form">
             <input type="text" id="nombre" placeholder="Nombre" required>
             <input type="text" id="apellido" placeholder="Apellido" required>
             <textarea id="comentario" placeholder="Comentario" required></textarea>
             <button type="submit">Enviar</button>
         </form>
-        <div id="comments-container"></div>
-        <button id="prev-comment" class="nav-arrow">&lt;</button>
-        <button id="next-comment" class="nav-arrow">&gt;</button>
-    </section>
+    </div>
 
-    <!-- Footer con certificaciones, contacto y redes sociales -->
     <footer>
         <div class="certifications">
             <h2>Certificaciones</h2>
-            <!-- Contenido de certificaciones -->
+            <a href="certificaiones.html" class="nav-link">REDIRIGIR</a>
         </div>
         <div class="contact">
             <h2>Contacto</h2>
@@ -107,7 +107,7 @@
         </div>
     </footer>
 
-    <!-- Usa el tipo module para el script -->
     <script type="module" src="js/inicio.js"></script>
 </body>
 </html>
+

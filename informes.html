@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla de Informes Médicos</title>
-    <a href="prueba.html" class="button-link">INGRESA NUEVO RUT</a>
-    <a href="inicio.html" class="button-link">REGRESAR INICIO</a>
     <link rel="stylesheet" href="css/fondo.css"> 
-
     <link rel="stylesheet" href="css/informe.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -19,12 +16,13 @@
             <img src="img/imagenkine.jpeg" alt="Logo KINEADVANCE" class="logo">
         </div>
         <nav>
-            
+            <a href="prueba.html" class="button-link">INGRESA NUEVO RUT</a>
+            <a href="inicio.html" class="button-link">REGRESAR INICIO</a>
         </nav>
     </header>
-    <div class="container">
-        <div class="benefits-container">
-            <button id="btnDescargarInforme">Descargar Informe Médico PDF</button>
+    <main class="container">
+        <section class="report-section">
+            <button id="btnDescargarInforme" class="action-button">Descargar Informe Médico PDF</button>
             <table id="tablaDatos">
                 <thead>
                     <tr>
@@ -43,34 +41,30 @@
                     <!-- Aquí se añadirán dinámicamente las filas de datos -->
                 </tbody>
             </table>
-        </div>
-    </div>
-    <header>
-        <h1>Tabla de Sesiones Médicas</h1>
-    </header>
-    <div class="container">
-        <h2>Sesiones Médicas</h2>
-        <button id="btnDescargarSesiones">Descargar Sesiones Médicas PDF</button>
-        <table id="tablaSesiones">
-            <thead>
-                <tr>
-                    <th>RUT</th>
-                    <th>Sesión</th>
-                    <th>Fecha</th>
-                    <th>Evolución</th>
-                    <th>Dolor Reposo</th>
-                    <th>Dolor Movimiento</th>
-                    <th>Rango  Articular</th>
-                    <th>Evaluación Muscular</th>
-                    <th>Tratamiento Kinesico</th>
-                    
-                </tr>
-            </thead>
-            <tbody id="tbodySesiones">
-                <!-- Aquí se añadirán dinámicamente las filas de sesiones -->
-            </tbody>
-        </table>
-    </div>
+        </section>
+        <section class="sessions-section">
+            <h1>Tabla de Sesiones Médicas</h1>
+            <button id="btnDescargarSesiones" class="action-button">Descargar Sesiones Médicas PDF</button>
+            <table id="tablaSesiones">
+                <thead>
+                    <tr>
+                        <th>RUT</th>
+                        <th>Sesión</th>
+                        <th>Fecha</th>
+                        <th>Evolución</th>
+                        <th>Dolor Reposo</th>
+                        <th>Dolor Movimiento</th>
+                        <th>Rango Articular</th>
+                        <th>Evaluación Muscular</th>
+                        <th>Tratamiento Kinesico</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodySesiones">
+                    <!-- Aquí se añadirán dinámicamente las filas de sesiones -->
+                </tbody>
+            </table>
+        </section>
+    </main>
     <!-- Cargar Firebase SDK y los scripts de Main como módulos -->
     <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>

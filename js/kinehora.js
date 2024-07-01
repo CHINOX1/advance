@@ -125,7 +125,7 @@ async function confirmarCita(reservaId) {
         const reservaRef = doc(db, 'reservado', reservaId);
         await updateDoc(reservaRef, { confirmada: true });
         alert("Cita confirmada con éxito.");
-        verReservasButton.click(); // Reload reservations to reflect changes
+        verReservasButton.click(); 
     } catch (error) {
         console.error("Error al confirmar la cita:", error);
         alert("Ocurrió un error al confirmar la cita. Por favor, intenta de nuevo.");

@@ -1,156 +1,37 @@
-/* Importación de fuentes y estilos */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:700,300');
-
-/* Estilo general para la sección de comentarios */
-.comments-section {
-    background-color: rgba(230, 247, 255, 0.8);
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    width: 60%;
-    text-align: center;
-    position: relative;
-    font-family: 'Open Sans', Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#comments-container {
-    display: flex;
-    perspective: 1000px;
-    width: 100%;
-    position: relative;
-    height: 250px;
-    justify-content: center;
-    align-items: center;
-}
-
-.comment {
-    box-sizing: border-box;
-    background-color: #a1c4fd; /* Color celeste */
-    border: 2px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 0 10px;
-    text-align: center;
-    width: 250px;
-    height: 250px;
-    box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
-    overflow: hidden;
-    color: #333;
-    position: absolute;
-    top: 0;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 1s;
-}
-
-.comment h3 {
-    margin: 0 0 10px;
-}
-
-.comment p {
-    margin: 0;
-    white-space: pre-wrap; /* Permitir saltos de línea */
-    text-align: left;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-    height: 70%;
-    overflow-y: auto;
-}
-
-.nav-arrow {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 10px;
-    border: none;
-    font-size: 18px;
-    border-radius: 50%;
-    user-select: none;
-    z-index: 10;
-}
-
-#prev-comment {
-    left: 10px;
-}
-
-#next-comment {
-    right: 10px;
-}
-
-#comment-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-#comment-form input, #comment-form textarea {
-    margin: 5px 0;
-    padding: 10px;
-    width: 80%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#comment-form button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #6fa3ef;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
-#comment-form button:hover {
-    background-color: #5a8dd3;
-}
-
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('img/kinesiología-825x360.png'); /* Ajusta  imagen */
+    background-image: url('img/kinesiología-825x360.png'); /* Ajusta imagen */
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
 }
 
-/* Estilos para la reserva de hora */
-
-
 /* Estilos para la cabecera principal */
 .main-header {
-    background-color: rgba(230, 247, 255, 0.8);
-    padding: 10px 20px;
+    background-color: rgba(230, 247, 255, 0.9);
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid rgba(0, 123, 255, 0.8); /* Borde inferior */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .logo img {
-    max-width: 150.5px;
+    max-width: 150px;
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex; /* Cambiado a flex para alinear horizontalmente */
 }
 
 nav ul li {
-    display: inline;
     margin-right: 20px;
 }
 
@@ -162,21 +43,22 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #0a0a0a;
+    color: rgba(0, 123, 255, 0.8); /* Color celeste claro */
 }
 
 /* Estilos para el carrusel de imágenes */
 .carousel {
     position: relative;
     overflow: hidden;
-    margin-top: 20px;
-    width: calc(100% - 20px); /* Ajuste del ancho del carrusel */
-    margin-right: 20px; /* Ajuste del margen derecho para separar del contenedor de reserva */
+    margin: 20px auto;
+    max-width: 1000px; /* Limitar el ancho del carrusel */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
 }
 
 .slide {
     display: none;
-    width: 50%; /* Reducir el ancho al 50% del contenedor */
+    width: 100%;
 }
 
 .slide.active {
@@ -184,71 +66,115 @@ nav ul li a:hover {
 }
 
 .carousel img {
-    width: 100%; /* Ajustar la imagen al 100% del ancho del contenedor */
+    width: 100%;
     height: auto;
+    border-radius: 10px; /* Bordes redondeados en las imágenes */
 }
 
 .carousel-nav {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
 }
 
 .carousel-nav button {
-    background-color: #151616;
+    background-color: rgba(0, 123, 255, 0.8);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-nav button:hover {
-    background-color: #0c0c0c;
+    background-color: rgba(0, 123, 255, 1);
 }
-
 
 /* Estilos para los contenedores de secciones */
 .content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1200px; /* Limitar el ancho del contenedor */
+    gap: 20px; /* Espacio entre los elementos */
 }
 
+/* Estilos para las secciones individuales */
 .medical-results,
 .quotes,
 .patient-guide {
-    flex-basis: calc(33.33% - 20px); /* Establecer el ancho base de cada sección */
-    background-color: rgba(230, 247, 255, 0.8); /* Fondo transparente */
+    flex: 1 1 calc(33.33% - 20px); /* Establecer el ancho base de cada sección */
+    background-color: rgba(230, 247, 255, 0.9); /* Fondo transparente */
     padding: 20px;
-    margin-bottom: 20px; /* Espacio entre las secciones */
-    box-sizing: border-box; /* Incluir padding y border en el ancho y alto */
+    box-sizing: border-box;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
 }
 
-/* Ajuste para el margen derecho de la última sección */
+.medical-results h2,
+.quotes h2,
+.patient-guide h2 {
+    color: rgba(0, 123, 255, 0.9); /* Títulos en celeste */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el botón de cotizaciones */
+.quotes .nav-link {
+    background-color: rgba(0, 123, 255, 0.8);
+    color: black;
+    border: 2px solid rgba(230, 247, 255, 0.8);
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 5px;
+    display: block;
+    margin-top: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quotes .nav-link:hover {
+    background-color: rgba(0, 123, 255, 1);
+    color: white;
+}
+
+/* Estilos para el contenedor de las tres secciones */
+.section-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px auto;
+    max-width: 1200px; /* Limitar el ancho del contenedor */
+    gap: 20px; /* Espacio entre las secciones */
+}
+
+/* Estilos para los contenedores de secciones */
+.medical-results,
+.quotes,
 .patient-guide {
-    margin-right: 0;
+    background-color: rgba(230, 247, 255, 0.9); /* Fondo transparente */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
 }
-
-/* Limpiar flotantes */
-.content::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
 
 /* Estilos para el footer */
 footer {
-    background-color: rgba(230, 247, 255, 0.8);
+    background-color: rgba(230, 247, 255, 0.9);
     padding: 20px;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    max-width: 1200px; /* Limitar el ancho del contenedor */
+    margin: 20px auto;
+    gap: 20px;
 }
 
 footer div {
@@ -257,31 +183,141 @@ footer div {
 }
 
 footer h2 {
-    color: #141414;
+    color: rgba(0, 123, 255, 0.9);
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-/* Estilos para el contenedor de las tres secciones */
-.section-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 20px; /* Espacio entre el carrusel y las secciones */
-}
-
-/* Estilos para los contenedores de secciones */
-.medical-results,
-.quotes,
-.patient-guide {
-    flex-basis: calc(33.33% - 20px); /* Establecer el ancho base de cada sección */
-    background-color: rgba(230, 247, 255, 0.8); /* Fondo transparente */
+/* Estilos para la sección de comentarios */
+.comments-section {
+    margin: 20px auto;
     padding: 20px;
-    box-sizing: border-box; /* Incluir padding y border en el ancho y alto */
+    border: 1px solid #ccc;
+    background-color: rgba(230, 247, 255, 0.9);
+    position: relative;
+    max-width: 1200px; /* Limitar el ancho del contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Ajuste para el margen derecho de la última sección */
-.patient-guide {
-    margin-right: 0;
+.comments-section h2 {
+    color: rgba(0, 123, 255, 0.9);
+    margin-bottom: 15px;
+    font-size: 24px;
 }
 
+#comments-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#comments-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.comment {
+    flex: 0 0 250px; /* Asegura que cada comentario tenga un ancho fijo */
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment:hover {
+    transform: scale(1.2); /* Aumenta el tamaño del comentario al pasar el cursor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Añade una sombra para dar efecto de profundidad */
+}
+
+#add-comment-btn {
+    background-color: rgba(0, 123, 255, 0.8);
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+}
+
+#add-comment-btn:hover {
+    background-color: rgba(0, 123, 255, 1);
+    color: white;
+}
+
+#comment-sidebar {
+    position: fixed;
+    right: -300px; /* Mantiene el sidebar fuera de la vista */
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(230, 247, 255, 0.9);
+    border-left: 1px solid #ccc;
+    padding: 20px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    display: none; /* Oculta el sidebar por defecto */
+}
+
+#comment-sidebar.open {
+    display: block; /* Muestra el sidebar cuando se añade la clase 'open' */
+    right: 0;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#comment-form input, #comment-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#comment-form button {
+    background-color: rgba(0, 123, 255, 0.8);
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#comment-form button:hover {
+    background-color: rgba(0, 123, 255, 1);
+    color: white;
+}
+
+/* Estilos para el enlace de navegación */
+.nav-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px; 
+    text-decoration: none;
+    color: rgba(23, 155, 217, 0.8); /* Color celeste claro */
+    padding: 10px 20px;
+    border: 2px solid rgba(230, 247, 255, 0.8); /* Borde celeste claro */
+    border-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(230, 247, 255, 0.8); /* Fondo celeste claro al pasar el mouse */
+    color: rgb(15, 14, 14); /* Texto oscuro */
+}
+
+.nav-link:focus {
+    outline: none; /* Elimina el contorno al hacer foco */
+}
+
+.nav-link:active {
+    background-color: #45a049; /* Cambia el color al hacer clic */
+}

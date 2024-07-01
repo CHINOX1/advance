@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acreditaciones - Tarjetas</title>
+    <link rel="stylesheet" href="css/acreditcacion.css">
+    <link rel="stylesheet" href="css/fondo.css"> 
+    <a href="inicio.html" class="nav-link">Regresar al inicio</a>
+</head>
+<body>
+    <section class="accreditations">
+        <div class="card" onclick="openModal('certificaciones/1.png')">
+            <img src="certificaciones/1.png" alt="Diploma 1">
+            <div class="card-content">
+                <h3>CERTIFICADO  DE APROBACION</h3>
+
+            </div>
+        </div>
+        <div class="card" onclick="openModal('certificaciones/2.png')">
+            <img src="certificaciones/2.png" alt="Diploma 2">
+            <div class="card-content">
+                <h3>ESTIMULACION TRANSCRANEAL </h3>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('certificaciones/3.png')">
+            <img src="certificaciones/3.png" alt="Diploma 3">
+            <div class="card-content">
+                <h3> ELECTROLISIS PERCUTANEA ECOGRAFIA</h3>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('certificaciones/5.png')">
+            <img src="certificaciones/5.png" alt="Diploma 4">
+            <div class="card-content">
+                <h3>ELECTROLISIS PERCUTANEA </h3>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('certificaciones/6.png')">
+            <img src="certificaciones/6.png" alt="Diploma 5">
+            <div class="card-content">
+                <h3>ECOGRAFIA MUSCULOESLETICO</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modal-image" alt="Acreditación">
+        <div id="caption"></div>
+    </div>
+
+    <script src="js/acreditacion.js"></script>
+</body>
+</html>
