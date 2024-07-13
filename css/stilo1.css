@@ -1,0 +1,299 @@
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #121212; /* Fondo negro */
+    color: #f5f5f5; /* Texto blanco */
+}
+
+/* Estilos para la cabecera principal */
+.main-header {
+    background-color: #1c1c1c;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333; /* Borde inferior gris oscuro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* Sombra más oscura */
+}
+
+.logo img {
+    max-width: 120px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Alinear horizontalmente */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #bbb;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: #fff; /* Texto blanco al pasar el mouse */
+}
+
+/* Estilos para el carrusel de imágenes */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    max-width: 800px; /* Limitar el ancho del carrusel */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra más oscura */
+}
+
+.slide {
+    display: none;
+    width: 100%;
+}
+
+.slide.active {
+    display: block;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Bordes redondeados en las imágenes */
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
+}
+
+.carousel-nav button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-nav button:hover {
+    background-color: #222;
+}
+
+/* Estilos para los contenedores de secciones */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1000px; /* Limitar el ancho del contenedor */
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+.medical-results,
+.quotes,
+.patient-guide {
+    flex: 1 1 calc(33.33% - 20px); /* Establecer el ancho base de cada sección */
+    background-color: #1c1c1c; /* Fondo gris oscuro */
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Sombra más oscura */
+}
+
+.medical-results h2,
+.quotes h2,
+.patient-guide h2 {
+    color: #ccc; /* Títulos en gris claro */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el botón de cotizaciones */
+.quotes .nav-link {
+    background-color: #333; /* Gris oscuro */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 5px;
+    display: block;
+    margin-top: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quotes .nav-link:hover {
+    background-color: #111;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #1c1c1c;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px; /* Limitar el ancho del contenedor */
+    margin: 20px auto;
+    gap: 20px;
+}
+
+footer div {
+    flex: 1;
+    margin-right: 20px;
+}
+
+footer h2 {
+    color: #ccc;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para la sección de comentarios */
+.comments-section {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #333;
+    background-color: #1c1c1c;
+    position: relative;
+    max-width: 1000px; /* Limitar el ancho del contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.comments-section h2 {
+    color: #ccc;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+#comments-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#comments-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.comment {
+    flex: 0 0 250px; /* Asegura que cada comentario tenga un ancho fijo */
+    padding: 10px;
+    border: 1px solid #333;
+    background-color: #1c1c1c;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del comentario al pasar el cursor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Añade una sombra para dar efecto de profundidad */
+}
+
+#add-comment-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+}
+
+#add-comment-btn:hover {
+    background-color: #111;
+}
+
+#comment-sidebar {
+    position: fixed;
+    right: -300px; /* Mantiene el sidebar fuera de la vista */
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #1c1c1c;
+    border-left: 1px solid #333;
+    padding: 20px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    display: none; /* Oculta el sidebar por defecto */
+}
+
+#comment-sidebar.open {
+    display: block; /* Muestra el sidebar cuando se añade la clase 'open' */
+    right: 0;
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#comment-form input, #comment-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+#comment-form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#comment-form button:hover {
+    background-color: #111;
+}
+
+/* Estilos para el enlace de navegación */
+.nav-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px; 
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    border: 2px solid transparent; /* Borde transparente */
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+}
+
+.nav-link:focus {
+    outline: none; /* Elimina el contorno al hacer foco */
+}
+
+.nav-link:active {
+    background-color: #111;
+    color: white;
+}
