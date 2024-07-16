@@ -1,0 +1,126 @@
+
+.main-header {
+    background-color: #f0f8ff;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.main-header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.main-header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.main-header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.main-header nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Estilos de las secciones de terapia */
+.section-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.medical-results {
+    margin-bottom: 40px;
+}
+
+.medical-results h2 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.medical-results p, .medical-results ul {
+    font-size: 16px;
+    color: #333;
+}
+
+.medical-results ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.medical-results ul li {
+    margin-bottom: 5px;
+}
+
+/* Estilos del carrusel */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin-top: 20px;
+    border: 2px solid #007bff; /* Marco alrededor del carrusel */
+    border-radius: 10px; /* Esquinas redondeadas del marco */
+    overflow: hidden; /* Asegura que las imágenes no sobresalgan del marco */
+}
+
+.carousel .slide {
+    display: none;
+}
+
+.carousel .slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    width: 100%; 
+    max-height: 400px; /* Tamaño máximo de las imágenes */
+}
+
+.carousel .slide.active {
+    display: block;
+}
+
+/* Animación del carrusel */
+@keyframes slideShow {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.carousel .slide {
+    animation: slideShow 10s infinite;
+}
+
+
+@media (max-width: 768px) {
+    .main-header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+.nav-link {
+    display: block;
+    text-align: center;
+    margin: 20px;
+    text-decoration: none;
+    color: #003366; /* Color azul oscuro */
+    padding: 10px 20px;
+    border: 2px solid #003366; /* Borde azul oscuro */
+    border-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #003366; /* Fondo azul oscuro al pasar el mouse */
+    color: white; /* Texto blanco */
+}
+
+.nav-link:focus {
+    outline: none;
+}
