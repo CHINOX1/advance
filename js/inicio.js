@@ -114,3 +114,22 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para avanzar las diapositivas automáticamente
     setInterval(nextSlide, slideInterval);
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll("a.nav-link");
+
+    links.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const href = this.getAttribute("href");
+
+            // Añadir la clase active para mostrar la transición
+            const overlay = document.querySelector(".fade-overlay");
+            overlay.classList.add("active");
+
+            // Esperar 1 segundo antes de redirigir a la nueva página
+            setTimeout(() => {
+                window.location.href = href;
+            }, 2000);
+        });
+    });
+});

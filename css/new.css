@@ -1,10 +1,15 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
 .main-header {
-    background-color: #f0f8ff;
+     background-color: rgba(230, 247, 255, 0.9);
     padding: 20px;
     text-align: center;
 }
-
 
 .main-header nav ul {
     list-style: none;
@@ -23,7 +28,7 @@
 }
 
 .main-header nav ul li a:hover {
-    color: #007bff;
+    color: #a1c4fd;
 }
 
 /* Estilos de las secciones de terapia */
@@ -38,7 +43,7 @@
 }
 
 .medical-results h2 {
-    color: #007bff;
+    color: #a1c4fd;
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -62,40 +67,43 @@
     position: relative;
     max-width: 100%;
     margin-top: 20px;
-    border: 2px solid #007bff; /* Marco alrededor del carrusel */
-    border-radius: 10px; /* Esquinas redondeadas del marco */
-    overflow: hidden; /* Asegura que las imágenes no sobresalgan del marco */
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .carousel .slide {
     display: none;
 }
 
+.carousel .slide .image-container {
+    position: relative;
+    width: 100%;
+}
+
 .carousel .slide img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
-    width: 100%; 
-    max-height: 400px; /* Tamaño máximo de las imágenes */
+    max-height: 400px;
 }
 
-.carousel .slide.active {
-    display: block;
+.carousel .slide .info-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s, background-color 0.3s;
+    text-align: center;
 }
 
-/* Animación del carrusel */
-@keyframes slideShow {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    40% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 0; }
+.carousel .slide:hover .info-box {
+    opacity: 1;
 }
-
-.carousel .slide {
-    animation: slideShow 10s infinite;
-}
-
 
 @media (max-width: 768px) {
     .main-header nav ul li {
@@ -103,24 +111,139 @@
         margin-bottom: 10px;
     }
 }
+
 .nav-link {
     display: block;
     text-align: center;
     margin: 20px;
     text-decoration: none;
-    color: #003366; /* Color azul oscuro */
+    color: #003366;
     padding: 10px 20px;
-    border: 2px solid #003366; /* Borde azul oscuro */
+    border: 2px solid #003366;
     border-radius: 5px;
     background-color: transparent;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .nav-link:hover {
-    background-color: #003366; /* Fondo azul oscuro al pasar el mouse */
-    color: white; /* Texto blanco */
+    background-color: #003366;
+    color: white;
 }
 
 .nav-link:focus {
     outline: none;
+}
+/* CSS para las tarjetas */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Fondo celeste claro */
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #a1c4fd; /* Color azul para el hover */
+}
+
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Centra las tarjetas en la página */
+    padding: 20px; /* Agrega espacio alrededor del contenedor */
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    margin: 10px; /* Espacio alrededor de cada tarjeta */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px; /* Bordes redondeados para un diseño más suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para las tarjetas */
+}
+
+.card-front {
+    background: #ffffff; /* Fondo blanco para el frente de la tarjeta */
+    color: #000;
+}
+
+.card-back {
+    background: #e0f7fa; /* Fondo celeste claro para la parte trasera de la tarjeta */
+    color: #000;
+    transform: rotateY(180deg);
+}
+
+.card-front img {
+    max-width: 100%;
+    max-height: 60%;
+    object-fit: cover;
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+    margin-bottom: 10px; /* Espacio entre la imagen y el título */
+}
+
+.card-front h2 {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0;
+    color: #a1c4fd; /* Color azul celeste para los títulos */
+}
+
+.card-back p, .card-back ul {
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.card-back ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 10px 0 0;
+}
+
+/* Estilo adicional para botones si se necesitan */
+button {
+    background-color: #a1c4fd; /* Color celeste claro */
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00bfff; /* Color azul más intenso para el hover */
 }
