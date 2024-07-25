@@ -1,14 +1,15 @@
 import { db, collection, addDoc, getDocs } from './firebase.js';
-
 $(document).ready(async function() {
     const commentForm = $('#comment-form');
     const commentsWrapper = $('#comments-wrapper');
     const addCommentBtn = $('#add-comment-btn');
     const commentSidebar = $('#comment-sidebar');
+    const gifSelector = $('#gif-selector');
     let comments = [];
     let currentIndex = 0;
-    const commentWidth = 250; // Ancho del comentario (sin incluir márgenes)
-    const intervalTime = 3000; // Tiempo entre transiciones en milisegundos (3 segundos)
+    const commentWidth = 340; 
+    const intervalTime = 3000; 
+    let isFirstLoad = true; 
 
     // Función para obtener comentarios
     async function fetchComments() {
@@ -18,18 +19,30 @@ $(document).ready(async function() {
         querySnapshot.forEach((doc) => {
             const comment = doc.data();
             comments.push(comment);
-            displayComment(comment.nombre, comment.apellido, comment.comentario);
+            displayComment(comment.nombre, comment.apellido, comment.comentario, comment.gif);
         });
-        // Clonar los comentarios para que el carrusel sea cíclico
-        cloneComments();
+        
+        if (isFirstLoad) {
+            // Clonar los comentarios solo en la primera carga
+            cloneComments();
+            isFirstLoad = false;
+        }
+
         startCarousel(); // Inicia el carrusel después de obtener los comentarios
     }
 
     // Función para mostrar un comentario en el HTML
-    function displayComment(nombre, apellido, comentario) {
+    function displayComment(nombre, apellido, comentario, gif) {
         const commentElement = $('<div>').addClass('comment').html(`
-            <h3>${nombre} ${apellido}</h3>
-            <p>${comentario}</p>
+            <div class="comment-inner">
+                <div class="comment-front">
+                    <img src="${gif}" alt="GIF">
+                </div>
+                <div class="comment-back">
+                    <h3>${nombre} ${apellido}</h3>
+                    <p>${comentario}</p>
+                </div>
+            </div>
         `);
         commentsWrapper.append(commentElement);
     }
@@ -38,66 +51,60 @@ $(document).ready(async function() {
     function cloneComments() {
         comments.forEach((comment) => {
             const commentElement = $('<div>').addClass('comment').html(`
-                <h3>${comment.nombre} ${comment.apellido}</h3>
-                <p>${comment.comentario}</p>
+                <div class="comment-inner">
+                    <div class="comment-front">
+                        <img src="${comment.gif}" alt="GIF">
+                    </div>
+                    <div class="comment-back">
+                        <h3>${comment.nombre} ${comment.apellido}</h3>
+                        <p>${comment.comentario}</p>
+                    </div>
+                </div>
             `);
-            commentsWrapper.append(commentElement);
+            commentsWrapper.append(commentElement.clone()); // Clona el comentario
         });
     }
 
-    // Función para iniciar el carrusel
+    // Inicia el carrusel
     function startCarousel() {
-        const totalComments = comments.length;
-        const totalWidth = commentWidth * totalComments * 2 + 10 * (totalComments * 2 - 1); // Ancho total del carrusel
-
-        if (totalComments > 0) {
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % totalComments;
-                const offset = currentIndex * (-commentWidth - 10); // Ancho del comentario más el espacio entre ellos
-                commentsWrapper.css('transform', `translateX(${offset}px)`);
-            }, intervalTime);
-        }
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % comments.length;
+            const offset = -currentIndex * commentWidth;
+            commentsWrapper.css('transform', `translateX(${offset}px)`);
+        }, intervalTime);
     }
 
-    // Evento para manejar el envío del formulario
-    commentForm.on('submit', async function(e) {
-        e.preventDefault();
+
+    // Manejar el envío del formulario
+    commentForm.on('submit', async (event) => {
+        event.preventDefault();
         const nombre = $('#nombre').val();
         const apellido = $('#apellido').val();
         const comentario = $('#comentario').val();
+        const gif = $('#gif-selector').val(); // Asume que gif-selector es un <select> con opciones de GIFs
+        
+        await addDoc(collection(db, 'comentarios'), {
+            nombre: nombre,
+            apellido: apellido,
+            comentario: comentario,
+            gif: gif
+        });
 
-        // Guardar comentario en Firebase
-        try {
-            await addDoc(collection(db, 'comentarios'), {
-                nombre,
-                apellido,
-                comentario,
-                timestamp: new Date()
-            });
-            displayComment(nombre, apellido, comentario); // Mostrar el comentario inmediatamente
-            comments.push({ nombre, apellido, comentario }); // Añadir comentario al array
-            cloneComments(); // Clonar los comentarios para mantener el carrusel cíclico
-            $('#nombre').val('');
-            $('#apellido').val('');
-            $('#comentario').val('');
-        } catch (error) {
-            console.error('Error al agregar comentario: ', error);
-        }
+        commentForm[0].reset(); // Limpiar formulario
+        commentSidebar.hide(); // Ocultar el formulario
+        fetchComments(); // Refrescar comentarios
     });
 
-    // Evento para mostrar el formulario de comentario
-    addCommentBtn.on('click', function() {
-        commentSidebar.toggleClass('open');
-        if (commentSidebar.hasClass('open')) {
-            commentSidebar.css('display', 'block');
-        } else {
-            commentSidebar.css('display', 'none');
-        }
+    // Manejar el clic en los comentarios para voltear la carta
+    commentsWrapper.on('click', '.comment', function() {
+        $(this).toggleClass('flip');
     });
 
-    // Inicializar comentarios al cargar la página
+    // Cargar comentarios al iniciar
     fetchComments();
 });
+
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -119,17 +126,81 @@ document.addEventListener("DOMContentLoaded", function() {
 
     links.forEach(link => {
         link.addEventListener("click", function(event) {
-            event.preventDefault();
+            event.preventDefault(); // Evita el comportamiento por defecto del enlace
             const href = this.getAttribute("href");
 
             // Añadir la clase active para mostrar la transición
             const overlay = document.querySelector(".fade-overlay");
-            overlay.classList.add("active");
+            if (overlay) {
+                console.log("Overlay encontrado. Agregando clase active.");
+                overlay.classList.add("active");
 
-            // Esperar 1 segundo antes de redirigir a la nueva página
-            setTimeout(() => {
-                window.location.href = href;
-            }, 2000);
+                // Forzar un reflujo para asegurarse de que el navegador procese el cambio
+                requestAnimationFrame(() => {
+                    // Esperar un tiempo para mostrar la animación antes de redirigir
+                    setTimeout(() => {
+                        console.log("Redirigiendo a la nueva página:", href);
+                        window.location.href = href; // Redirige a la nueva página
+                    }, 1000); // Ajusta este tiempo según la duración de tu animación
+                });
+            } else {
+                console.error("Overlay no encontrado.");
+            }
         });
+    });
+});
+
+
+$(document).ready(function() {
+    $('.card').on('click', function() {
+        $(this).find('.card-inner').toggleClass('flipped');
+    });
+
+    $('#add-comment-btn').on('click', function() {
+        $('#comment-sidebar').fadeIn();
+    });
+
+    $('#comment-form').on('submit', function(e) {
+        e.preventDefault();
+        // Aquí va la lógica para enviar el comentario
+        $('#comment-sidebar').fadeOut();
+    });
+
+    $('.fade-overlay').fadeIn(1000).delay(2000).fadeOut(1000);
+});
+
+
+
+$(document).ready(function() {
+    const gifSelector = $('#gif-selector');
+    const gifPreviewImg = $('#gif-preview-img');
+
+    // Actualiza la vista previa del GIF cuando se cambia la selección
+    gifSelector.on('change', function() {
+        const selectedGif = $(this).val();
+        gifPreviewImg.attr('src', selectedGif);
+    });
+
+    // Inicializar vista previa con el GIF predeterminado
+    gifPreviewImg.attr('src', gifSelector.val());
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const addCommentBtn = document.getElementById("add-comment-btn");
+    const commentSidebar = document.getElementById("comment-sidebar");
+
+    addCommentBtn.addEventListener("click", function() {
+        if (commentSidebar.classList.contains("open")) {
+            // Si el sidebar está abierto, ciérralo
+            commentSidebar.classList.remove("open");
+            setTimeout(() => {
+                commentSidebar.style.display = "none"; // Oculta el sidebar después de la animación
+            }, 300); // Tiempo de la transición
+        } else {
+            // Si el sidebar está cerrado, ábrelo
+            commentSidebar.style.display = "block"; // Muestra el sidebar
+            setTimeout(() => {
+                commentSidebar.classList.add("open");
+            }, 10); // Pequeño retraso para asegurarse de que la transición se aplique
+        }
     });
 });

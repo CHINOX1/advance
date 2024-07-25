@@ -1,0 +1,23 @@
+.fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff; /* Fondo blanco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out;
+    z-index: 1000;
+    opacity: 0;
+}
+
+.fade-overlay.active {
+    opacity: 1;
+}
+
+.fade-overlay img {
+    max-width: 90%;
+    height: auto;
+}

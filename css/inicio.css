@@ -1,34 +1,19 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('img/kinesiología-825x360.png'); /* Ajusta imagen */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Fija la imagen de fondo para que no se desplace con el contenido */
-}
 
-/* Estilos para la cabecera principal */
-.main-header {
-    background-color: rgba(230, 247, 255, 0.9);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid rgba(0, 123, 255, 0.8); /* Borde inferior */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
 
 .logo img {
     max-width: 100px;
 }
 
+/* Estilos para la barra de navegación */
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Cambiado a flex para alinear horizontalmente */
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 nav ul li {
@@ -40,6 +25,8 @@ nav ul li a {
     color: #333;
     font-weight: bold;
     font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
@@ -161,18 +148,19 @@ nav ul li a:hover {
 }
 
 
-
-
 /* Estilos para la sección de comentarios */
 .comments-section {
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
     border: 1px solid #ccc;
     background-color: rgba(230, 247, 255, 0.9);
     position: relative;
-    max-width: 1200px; /* Limitar el ancho del contenedor */
+    max-width: 1200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
 }
+
 .comments-section h2 {
     color: #007bff;
     margin-bottom: 20px;
@@ -191,25 +179,77 @@ nav ul li a:hover {
     transition: transform 0.5s ease;
 }
 
-
 .comment {
-    flex: 0 0 350px; /* Aumenta el ancho del comentario */
-    padding: 15px;
-    border-radius: 15px;
-    background: #f0f4f8;
-    border: 1px solid #ddd;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    margin: 0 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 300px; /* Ajusta el ancho mínimo para las tarjetas */
+    height: 200px; /* Ajusta la altura para las tarjetas */
+    margin: 0 15px; /* Mayor margen entre tarjetas */
+    box-sizing: border-box;
+    perspective: 1000px;
+    position: relative;
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
 }
 
-.comment:hover {
-    transform: scale(1.2); /* Aumenta el tamaño del comentario al pasar el cursor */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Añade una sombra para dar efecto de profundidad */
+.comment-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
 }
+
+.comment.flip .comment-inner {
+    transform: rotateY(180deg); /* Voltea la carta al hacer clic */
+}
+
+.comment-front,
+.comment-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid #007bff; /* Borde celeste para cada comentario */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco para cada comentario */
+}
+
+.comment-front {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-back {
+    background: #fff; /* Fondo blanco para el reverso de la carta */
+    transform: rotateY(180deg);
+    padding: 10px; /* Espaciado interno para el contenido */
+    box-sizing: border-box;
+}
+
+.comment-front img {
+    width: 100%; /* Ajusta el GIF para que ocupe todo el tamaño de la carta */
+    height: 100%;
+    object-fit: cover; /* Mantiene la relación de aspecto del GIF */
+    border-radius: 10px;
+}
+
+.comment-back h3,
+.comment-back p {
+    margin: 10px;
+    color: #333;
+}
+
+.gif-selection {
+    margin-top: 15px;
+}
+
+.gif-selection label {
+    display: block;
+    margin-bottom: 5px;
+}
+
 #comment-sidebar {
     position: fixed;
-    right: -300px; /* Mantiene el sidebar fuera de la vista */
+    right: -300px;
     top: 0;
     width: 300px;
     height: 100%;
@@ -218,7 +258,13 @@ nav ul li a:hover {
     padding: 20px;
     transition: right 0.3s ease;
     overflow-y: auto;
-    display: none; /* Oculta el sidebar por defecto */
+    display: none;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#comment-sidebar.open {
+    right: 0;
 }
 
 #add-comment-btn {
@@ -233,18 +279,17 @@ nav ul li a:hover {
     transition: background 0.3s, transform 0.3s;
 }
 
-
 #add-comment-btn:hover {
     background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
-    transform: scale(1.05); /* Efecto de aumento al pasar el cursor */
+    transform: scale(1.05);
 }
 
-
 #comment-form input, #comment-form textarea {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: calc(100% - 20px);
 }
 
 #comment-form button {
@@ -259,15 +304,6 @@ nav ul li a:hover {
 #comment-form button:hover {
     background-color: rgba(0, 123, 255, 1);
     color: white;
-}
-#comment-sidebar.open {
-    display: block; /* Muestra el sidebar cuando se añade la clase 'open' */
-    right: 0;
-}
-
-#comment-form {
-    display: flex;
-    flex-direction: column;
 }
 
 
@@ -296,8 +332,6 @@ nav ul li a:hover {
 .nav-link:active {
     background-color: #45a049; /* Cambia el color al hacer clic */
 }
-
-
 
 /* Estilos para el footer */
 footer {
@@ -335,6 +369,12 @@ footer {
     margin-bottom: 10px;
 }
 
+/* Animación de rotación */
+@keyframes rotate {
+    0% { transform: rotateY(0); }
+    100% { transform: rotateY(360deg); }
+}
+
 /* Estilo del Enlace de Certificaciones */
 .certifications .nav-link {
     background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
@@ -370,25 +410,143 @@ body.fade-out {
 }
 
 
-/* CSS para la transición */
+/* Estilo del overlay de transición */
 .fade-overlay {
     position: fixed;
-    top: -100%; /* Comienza fuera de la pantalla */
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
+    background-color:#fff; /* Fondo semi-transparente */
+    z-index: 9999; /* Asegúrate de que esté sobre todo el contenido */
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: top 1s ease-in-out;
-    z-index: 1000; /* Asegurarse de que esté por encima de todo */
+    opacity: 0;
+    transition: opacity 1s ease; /* Ajusta este tiempo según la duración de tu GIF */
 }
 
+/* Mostrar el overlay cuando tenga la clase active */
 .fade-overlay.active {
-    top: 0; /* Se desliza hacia abajo */
+    opacity: 1;
 }
+
 
 .fade-overlay img {
-    max-width: 50%; /* Tamaño más grande */
+    max-width: 90%;
+    height: auto;
+}
+
+/* Estilos para las cartas */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    perspective: 1000px;
+    width: 300px;
+    height: 200px;
+    overflow: hidden; /* Para asegurar que el contenido no se salga de la carta */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box; /* Incluye el padding en el tamaño total */
+}
+
+.card-front {
+    background: #fff;
+}
+
+.card-back {
+    background: #fff;
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+.card img {
+    width: 100%; /* Hace que la imagen ocupe toda la carta */
+    height: 100%; /* Ajusta la altura para que llene la carta */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+}
+
+.card h2,
+.card p {
+    margin: 0;
+}
+
+.card h2 {
+    color: #007bff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #333;
+    font-size: 16px;
+}
+
+.card .nav-link {
+    background: linear-gradient(135deg, #f4f4f5, #e0e3e4);
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+    margin-top: 10px;
+    display: block; /* Asegura que el botón ocupe el ancho completo en la parte posterior */
+}
+
+.card .nav-link:hover {
+    background: linear-gradient(135deg, #ededed, #eaebed);
+    color: #fff;
+}
+
+.nav-link {
+    background-color: rgba(230, 247, 255, 0.8);
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background-color: rgba(235, 242, 250, 0.8); /* Celeste claro */
+    color: white;
+}
+
+/* Estilos para la vista previa del GIF */
+#gif-preview {
+    margin-top: 15px;
+    text-align: center;
+}
+
+#gif-preview img {
+    width: 100%;
+    max-width: 200px; 
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }

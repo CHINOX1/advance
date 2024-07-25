@@ -6,9 +6,9 @@
     <title>Mi Clínica - Inicio</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/fondo.css"> 
 </head>
 <body>
-
     <!-- Cabecera principal -->
     <header class="main-header">
         <div class="logo">
@@ -34,24 +34,55 @@
         </section>
     </section>
 
-    <!-- Sección de Resultados Médicos -->
+    <!-- Sección de cartas -->
     <section class="section-container">
-        <section class="medical-results">
-            <h2>Resultados Médicos</h2>
-            <a href="prueba.html" class="nav-link">Generar Resultados</a>
-        </section>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>Resultados Médicos</h2>
+                    <img src="gif/reporte-de-salud.gif" alt="Icono">
+                </div>
+                <div class="card-back">
+                    <h2>Resultados Médicos</h2>
+                    <p>Información adicional sobre los resultados médicos.</p>
+                    <a href="prueba.html" class="nav-link">
+                        <img src="gif/reporte-de-salud.gif" alt="Generar Resultados">
+                    </a>
+                </div>
+            </div>
+        </div>
     
-        <!-- Sección de Cotizaciones -->
-        <section class="quotes">
-            <h2>Cotizaciones</h2>
-            <a href="cotizaciones.html" class="nav-link">Generar Cotizaciones</a>
-        </section>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>Cotizaciones</h2>
+                    <img src="gif/dinero.gif" alt="Icono">
+                </div>
+                <div class="card-back">
+                    <h2>Cotizaciones</h2>
+                    <p>Información adicional sobre las cotizaciones.</p>
+                    <a href="cotizaciones.html" class="nav-link">
+                        <img src="gif/dinero.gif" alt="Generar Cotizaciones">
+                    </a>
+                </div>
+            </div>
+        </div>
     
-        <!-- Sección de Guía para Pacientes -->
-        <section class="patient-guide">
-            <h2>Guía para Pacientes</h2>
-            <a href="new.html" class="nav-link">Generar Guia</a>
-        </section>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h2>Guía para Pacientes</h2>
+                    <img src="gif/guia-turistico.gif" alt="Icono">
+                </div>
+                <div class="card-back">
+                    <h2>Guía para Pacientes</h2>
+                    <p>Información adicional sobre la guía para pacientes.</p>
+                    <a href="new.html" class="nav-link">
+                        <img src="gif/guia-turistico.gif" alt="Generar Guía">
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
     
     <!-- Sección de Comentarios -->
@@ -63,40 +94,93 @@
         <button id="add-comment-btn">Agregar un comentario</button>
     </section>
 
-    <!-- Sidebar para agregar comentarios -->
     <div id="comment-sidebar">
         <h2>Agregar un Comentario</h2>
         <form id="comment-form">
             <input type="text" id="nombre" placeholder="Nombre" required>
             <input type="text" id="apellido" placeholder="Apellido" required>
             <textarea id="comentario" placeholder="Comentario" required></textarea>
+            
+            <!-- Selección de GIFs -->
+            <div class="gif-selection">
+                <label for="gif-selector">Elige un GIF:</label>
+                <select id="gif-selector">
+                    <option value="gif/buena-resena.gif">GIF 1</option>
+                    <option value="gif/atras.gif">GIF 2</option>
+                    <option value="gif/burbuja-de-dialogo (1).gif">GIF 3</option>
+                    <option value="gif/burbuja-de-dialogo.gif">GIF 4</option>
+                    <option value="gif/calificaciones.gif">GIF 5</option>
+                    <option value="gif/certificado.gif">GIF 6</option>
+                    <option value="gif/reporte-de-salud.gif">GIF 7</option>
+                    <option value="gif/levantamiento-de-pesas.gif">GIF 8</option>
+                </select>
+            </div>
+            
+            <!-- Vista previa del GIF -->
+            <div id="gif-preview">
+                <img id="gif-preview-img" src="gif1.gif" alt="Vista previa del GIF" />
+            </div>
+            
             <button type="submit">Enviar</button>
         </form>
     </div>
 
     <footer>
         <div class="footer-container">
-            <div class="certifications">
-                <h2>Certificaciones</h2>
-                <a href="certificaiones.html" class="nav-link">REDIRIGIR</a>
+            <div class="card footer-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2>Certificaciones</h2>
+                        <img src="gif/tarjeta.gif" alt="Certificaciones">
+                    </div>
+                    <div class="card-back">
+                        <h2>Certificaciones</h2>
+                        <p>Consulta nuestras certificaciones aquí.</p>
+                        <a href="certificaciones.html" class="nav-link">REDIRIGIR</a>
+                    </div>
+                </div>
             </div>
-            <div class="contact">
-                <h2>Contacto</h2>
+    
+            <div class="card footer-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2>Contacto</h2>
+                        <img src="gif/consulta.gif" alt="Contacto">
+                    </div>
+                    <div class="card-back">
+                        <h2>Contacto</h2>
+                        <p>Información sobre cómo contactarnos.</p>
+                        <a href="contacto.html" class="nav-link">CONTACTAR</a>
+                    </div>
+                </div>
             </div>
-            <div class="about">
-                <h2>Sobre Nosotros</h2>
+    
+            <div class="card footer-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h2>Sobre Nosotros</h2>
+                        <img src="gif/cuerda-de-batalla.gif" alt="Sobre Nosotros">
+                    </div>
+                    <div class="card-back">
+                        <h2>Sobre Nosotros</h2>
+                        <p>Conoce más acerca de nosotros y nuestra misión.</p>
+                        <a href="sobre-nosotros.html" class="nav-link">LEER MÁS</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="copyright">
             <p>&copy; 2024 Mi Clínica. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <div class="fade-overlay">
-        <img src="imagenes/kine3.jpg" alt="Logo de transición">
-    </div>
+    
 
-    <script type="module" src="js/inicio.js"></script>
-</body>
-</html>
+        </footer>
+        <div class="fade-overlay active">
+            <img src="gif/tomografia-computarizada.gif" alt="Transición">
+        </div>
+        
 
-</html>
+        <script type="module" src="js/inicio.js"></script>
+    </body>
+    </html>

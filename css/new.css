@@ -6,7 +6,7 @@ body {
 }
 
 .main-header {
-     background-color: rgba(230, 247, 255, 0.9);
+    background-color: rgba(230, 247, 255, 0.9);
     padding: 20px;
     text-align: center;
 }
@@ -133,6 +133,7 @@ body {
 .nav-link:focus {
     outline: none;
 }
+
 /* CSS para las tarjetas */
 body {
     font-family: Arial, sans-serif;
@@ -140,7 +141,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 
 .nav-link {
     color: #000;
@@ -156,16 +156,16 @@ body {
 .section-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px; /* Aumento del espacio entre tarjetas */
     justify-content: center; /* Centra las tarjetas en la página */
     padding: 20px; /* Agrega espacio alrededor del contenedor */
 }
 
 .card {
-    width: 300px;
-    height: 400px;
+    width: 500px; /* Aumento del ancho de la tarjeta */
+    height: 600px; /* Aumento de la altura de la tarjeta */
     perspective: 1000px;
-    margin: 10px; /* Espacio alrededor de cada tarjeta */
+    margin: 15px; /* Espacio alrededor de cada tarjeta */
 }
 
 .card-inner {
@@ -189,7 +189,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 20px; /* Aumento del padding */
     box-sizing: border-box;
     border-radius: 10px; /* Bordes redondeados para un diseño más suave */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para las tarjetas */
@@ -208,21 +208,21 @@ body {
 
 .card-front img {
     max-width: 100%;
-    max-height: 60%;
+    max-height: 70%; /* Aumento del tamaño máximo de la imagen */
     object-fit: cover;
     border-radius: 8px; /* Bordes redondeados para las imágenes */
-    margin-bottom: 10px; /* Espacio entre la imagen y el título */
+    margin-bottom: 20px; /* Aumento del espacio entre la imagen y el título */
 }
 
 .card-front h2 {
-    font-size: 1.2em;
+    font-size: 1.5em; /* Aumento del tamaño de la fuente del título */
     text-align: center;
     margin: 0;
     color: #a1c4fd; /* Color azul celeste para los títulos */
 }
 
 .card-back p, .card-back ul {
-    font-size: 0.9em;
+    font-size: 1.2em; /* Aumento del tamaño de la fuente en la parte trasera */
     text-align: center;
 }
 
@@ -246,4 +246,24 @@ button {
 
 button:hover {
     background-color: #00bfff; /* Color azul más intenso para el hover */
+}
+/* Asegúrate de que .fade-overlay esté correctamente configurado */
+.fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Para mostrar la transición */
+.fade-overlay.active {
+    opacity: 1;
 }
