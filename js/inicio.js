@@ -121,34 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para avanzar las diapositivas automáticamente
     setInterval(nextSlide, slideInterval);
 });
-document.addEventListener("DOMContentLoaded", function() {
-    const links = document.querySelectorAll("a.nav-link");
-
-    links.forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault(); // Evita el comportamiento por defecto del enlace
-            const href = this.getAttribute("href");
-
-            // Añadir la clase active para mostrar la transición
-            const overlay = document.querySelector(".fade-overlay");
-            if (overlay) {
-                console.log("Overlay encontrado. Agregando clase active.");
-                overlay.classList.add("active");
-
-                // Forzar un reflujo para asegurarse de que el navegador procese el cambio
-                requestAnimationFrame(() => {
-                    // Esperar un tiempo para mostrar la animación antes de redirigir
-                    setTimeout(() => {
-                        console.log("Redirigiendo a la nueva página:", href);
-                        window.location.href = href; // Redirige a la nueva página
-                    }, 1000); // Ajusta este tiempo según la duración de tu animación
-                });
-            } else {
-                console.error("Overlay no encontrado.");
-            }
-        });
-    });
-});
 
 
 $(document).ready(function() {
@@ -162,7 +134,7 @@ $(document).ready(function() {
 
     $('#comment-form').on('submit', function(e) {
         e.preventDefault();
-        // Aquí va la lógica para enviar el comentario
+  
         $('#comment-sidebar').fadeOut();
     });
 
