@@ -219,14 +219,14 @@ nav ul li a:hover {
 }
 
 .comment-back {
-    background: #fff; /* Fondo blanco para el reverso de la carta */
+    background: #95a4df; /* Fondo blanco para el reverso de la carta */
     transform: rotateY(180deg);
     padding: 10px; /* Espaciado interno para el contenido */
     box-sizing: border-box;
 }
 
 .comment-front img {
-    width: 100%; /* Ajusta el GIF para que ocupe todo el tamaño de la carta */
+    width: 50%; /* Ajusta el GIF para que ocupe todo el tamaño de la carta */
     height: 100%;
     object-fit: cover; /* Mantiene la relación de aspecto del GIF */
     border-radius: 10px;
