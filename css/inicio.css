@@ -181,7 +181,7 @@ nav ul li a:hover {
 
 .comment {
     min-width: 300px; /* Ajusta el ancho mínimo para las tarjetas */
-    height: 200px; /* Ajusta la altura para las tarjetas */
+    height: 100px; /* Ajusta la altura para las tarjetas */
     margin: 0 15px; /* Mayor margen entre tarjetas */
     box-sizing: border-box;
     perspective: 1000px;
@@ -219,7 +219,7 @@ nav ul li a:hover {
 }
 
 .comment-back {
-    background: #95a4df; /* Fondo blanco para el reverso de la carta */
+    background: #f5f5f5; /* Fondo blanco para el reverso de la carta */
     transform: rotateY(180deg);
     padding: 10px; /* Espaciado interno para el contenido */
     box-sizing: border-box;
