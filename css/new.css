@@ -9,11 +9,15 @@ body {
     background-color: rgba(230, 247, 255, 0.9);
     padding: 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .main-header nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .main-header nav ul li {
@@ -29,87 +33,6 @@ body {
 
 .main-header nav ul li a:hover {
     color: #a1c4fd;
-}
-
-/* Estilos de las secciones de terapia */
-.section-container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.medical-results {
-    margin-bottom: 40px;
-}
-
-.medical-results h2 {
-    color: #a1c4fd;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.medical-results p, .medical-results ul {
-    font-size: 16px;
-    color: #333;
-}
-
-.medical-results ul {
-    margin-top: 10px;
-    padding-left: 20px;
-}
-
-.medical-results ul li {
-    margin-bottom: 5px;
-}
-
-/* Estilos del carrusel */
-.carousel {
-    position: relative;
-    max-width: 100%;
-    margin-top: 20px;
-    border: 2px solid #007bff;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.carousel .slide {
-    display: none;
-}
-
-.carousel .slide .image-container {
-    position: relative;
-    width: 100%;
-}
-
-.carousel .slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    max-height: 400px;
-}
-
-.carousel .slide .info-box {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 10px;
-    opacity: 0;
-    transition: opacity 0.3s, background-color 0.3s;
-    text-align: center;
-}
-
-.carousel .slide:hover .info-box {
-    opacity: 1;
-}
-
-@media (max-width: 768px) {
-    .main-header nav ul li {
-        display: block;
-        margin-bottom: 10px;
-    }
 }
 
 .nav-link {
@@ -134,136 +57,96 @@ body {
     outline: none;
 }
 
-/* CSS para las tarjetas */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Fondo celeste claro */
-    margin: 0;
-    padding: 0;
-}
-
-.nav-link {
-    color: #000;
-    text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.nav-link:hover {
-    color: #a1c4fd; /* Color azul para el hover */
-}
-
+/* Contenedor de secciones */
 .section-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px; /* Aumento del espacio entre tarjetas */
-    justify-content: center; /* Centra las tarjetas en la página */
-    padding: 20px; /* Agrega espacio alrededor del contenedor */
-}
-
-.card {
-    width: 500px; /* Aumento del ancho de la tarjeta */
-    height: 600px; /* Aumento de la altura de la tarjeta */
-    perspective: 1000px;
-    margin: 15px; /* Espacio alrededor de cada tarjeta */
-}
-
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
-
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 20px; /* Aumento del padding */
-    box-sizing: border-box;
-    border-radius: 10px; /* Bordes redondeados para un diseño más suave */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para las tarjetas */
+    padding: 20px;
 }
 
-.card-front {
-    background: #ffffff; /* Fondo blanco para el frente de la tarjeta */
-    color: #000;
-}
-
-.card-back {
-    background: #e0f7fa; /* Fondo celeste claro para la parte trasera de la tarjeta */
-    color: #000;
-    transform: rotateY(180deg);
-}
-
-.card-front img {
-    max-width: 100%;
-    max-height: 70%; /* Aumento del tamaño máximo de la imagen */
-    object-fit: cover;
-    border-radius: 8px; /* Bordes redondeados para las imágenes */
-    margin-bottom: 20px; /* Aumento del espacio entre la imagen y el título */
-}
-
-.card-front h2 {
-    font-size: 1.5em; /* Aumento del tamaño de la fuente del título */
-    text-align: center;
-    margin: 0;
-    color: #a1c4fd; /* Color azul celeste para los títulos */
-}
-
-.card-back p, .card-back ul {
-    font-size: 1.2em; /* Aumento del tamaño de la fuente en la parte trasera */
-    text-align: center;
-}
-
-.card-back ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin: 10px 0 0;
-}
-
-/* Estilo adicional para botones si se necesitan */
-button {
-    background-color: #a1c4fd; /* Color celeste claro */
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+.card {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-button:hover {
-    background-color: #00bfff; /* Color azul más intenso para el hover */
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
-/* Asegúrate de que .fade-overlay esté correctamente configurado */
-.fade-overlay {
+
+.card h2 {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Estilos del modal */
+.modal {
+    display: none;
     position: fixed;
-    top: 0;
+    z-index: 1;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s;
 }
 
-/* Para mostrar la transición */
-.fade-overlay.active {
-    opacity: 1;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
 }

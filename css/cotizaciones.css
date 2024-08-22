@@ -15,7 +15,7 @@ body {
 
 /* Estilo del contenedor principal */
 .container {
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     background-color: rgba(230, 247, 255, 0.9); /* Fondo celeste semi-transparente */
     padding: 30px;
@@ -161,4 +161,37 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+/* Estilo para la imagen dentro del contenedor */
+.image-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Borde redondeado para la imagen */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para la imagen */
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
 }

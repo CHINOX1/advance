@@ -6,10 +6,10 @@ body {
 
 .accreditations {
     display: flex;
-    flex-direction: column; /* Cambiado para mostrar las tarjetas en una columna */
-    align-items: center;
+    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan en varias filas si es necesario */
+    justify-content: center; /* Centrar las tarjetas en el contenedor */
+    gap: 20px; /* Espacio entre las tarjetas */
     padding: 20px;
-    gap: 20px; /* Añadido espacio entre las tarjetas */
 }
 
 .card {
@@ -20,8 +20,8 @@ body {
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease;
-    width: 250px; /* Establecer un ancho fijo para todas las tarjetas */
-    height: 350px; /* Establecer una altura fija para todas las tarjetas */
+    width: 250px;
+    height: 350px;
 }
 
 .card:hover {
@@ -39,9 +39,7 @@ body {
     height: 40%; /* Ajustar para que el contenido ocupe el espacio restante */
 }
 
-
-
-/* Modal styles */
+/* Estilos del modal */
 .modal {
     display: none;
     position: fixed;
@@ -83,6 +81,7 @@ body {
     color: #ffffff;
     font-size: 16px;
 }
+
 .nav-link {
     display: block;
     text-align: center;
@@ -98,7 +97,7 @@ body {
 
 .nav-link:hover {
     background-color: rgba(230, 247, 255, 0.8); /* Fondo celeste claro al pasar el mouse */
-    color: rgb(15, 14, 14); /* Texto blanco */
+    color: rgb(15, 14, 14); /* Texto negro */
 }
 
 .nav-link:focus {

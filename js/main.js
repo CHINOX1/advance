@@ -24,14 +24,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             const filaDato = document.createElement('tr');
             filaDato.innerHTML = `
                 <td>${data.nombre}</td>
+                <td>${data.apellidos}</td>
                 <td>${data.rut}</td>
                 <td>${data.edad}</td>
                 <td>${data.fecha}</td>
+                <td>${data.fechaingreso}</td>
+                <td>${data.prevision}</td>
+                <td>${data.medicotratante}</td>
+                <td>${data.antecedentes_morbidos}</td>
                 <td>${data.motivo_consulta}</td>
-                <td>${data.enfermedad_actual}</td>
+                <td>${data.anamnesis_actual}</td>
+                <td>${data.cirugia}</td>
                 <td>${data.examen_fisico}</td>
-                <td>${data.diagnostico}</td>
-                <td>${data.indicaciones}</td>
+                <td>${data.diagnostico_medico}</td>
+                <td>${data.indicaciones_medicas}</td>
             `;
             tbodyDatos.appendChild(filaDato);
 
@@ -71,13 +77,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (informeData) {
                 crearInformePDF(
                     informeData.nombre,
+                    informeData.apellidos,
                     informeData.rut,
                     informeData.edad,
+                    informeData.fecha,
+                    informeData.fechaingreso,
+                    informeData.prevision,
+                    informeData.medicotratante,
+                    informeData.antecedentes_morbidos,
                     informeData.motivo_consulta,
-                    informeData.enfermedad_actual,
+                    informeData.anamnesis_actual,
+                    informeData.cirugia,
                     informeData.examen_fisico,
-                    informeData.diagnostico,
-                    informeData.indicaciones
+                    informeData.diagnostico_medico,
+                    informeData.indicaciones_medicas
                 );
             } else {
                 console.error('No se encontró ningún informe médico para el RUT proporcionado.');
@@ -94,53 +107,110 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-export function crearInformePDF(nombre, rut, edad, motivo_consulta, enfermedad_actual, examen_fisico, diagnostico, indicaciones) {
+export function crearInformePDF(
+    nombre,
+    apellidos,
+    rut,
+    edad,
+    fecha,
+    fechaingreso,
+    prevision,
+    medicotratante,
+    antecedentes_morbidos,
+    motivo_consulta,
+    anamnesis_actual,
+    cirugia,
+    examen_fisico,
+    diagnostico_medico,
+    indicaciones_medicas
+) {
     const { jsPDF } = window.jspdf;
 
     // Crear documento PDF
     const doc = new jsPDF();
 
+    // Configurar el tamaño de fuente
+    const fontSize = 10;
+    doc.setFontSize(fontSize);
+
+    // Ajustar márgenes y altura máxima de página
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 20;
+    let y = margin;
+
+    // Función para manejar el salto de página
+    const checkPageHeight = (increment) => {
+        if (y + increment > pageHeight - margin) {
+            doc.addPage();
+            y = margin;
+        }
+    };
+
     // Agregar encabezado con la fecha actual
     const fecha_actual = new Date().toLocaleDateString();
-    doc.text(`Fecha: ${fecha_actual}`, 20, 20);
+    doc.text(`Fecha: ${fecha_actual}`, margin, y);
+    y += 10;
 
     // Agregar información del paciente
-    doc.text(`Nombre: ${nombre || ''}`, 20, 30);
-    doc.text(`RUT: ${rut || ''}`, 20, 40);
-    doc.text(`Edad: ${edad || ''}`, 20, 50);
+    const patientInfo = [
+        `Nombre: ${nombre || ''} ${apellidos || ''}`,
+        `RUT: ${rut || ''}`,
+        `Edad: ${edad || ''}`,
+        `Fecha: ${fecha || ''}`,
+        `Fecha de Ingreso: ${fechaingreso || ''}`,
+        `Previsión: ${prevision || ''}`,
+        `Médico Tratante: ${medicotratante || ''}`,
+        `Antecedentes Mórbidos: ${antecedentes_morbidos || ''}`
+    ];
+
+    patientInfo.forEach((line) => {
+        checkPageHeight(10);
+        doc.text(line, margin, y);
+        y += 10;
+    });
+
+    y += 10;
 
     // Agregar título "Informe Médico"
-    doc.setFontSize(18);
-    doc.text('INFORME MÉDICO', 105, 65, { align: 'center' });
+    doc.setFontSize(14);
+    doc.text('INFORME MÉDICO', pageWidth / 2, y, { align: 'center' });
+    y += 15;
+    doc.setFontSize(fontSize);
 
-    // Agregar sección de motivo de consulta
-    doc.setFontSize(12);
-    doc.text('Motivo de Consulta', 20, 80);
-    doc.text(motivo_consulta || '', 20, 90);
+    // Función para agregar secciones con texto dividido
+    const addSection = (title, text) => {
+        checkPageHeight(15);
+        doc.text(title, margin, y);
+        y += 10;
+        const splitText = doc.splitTextToSize(text || '', pageWidth - margin * 2);
+        splitText.forEach((line) => {
+            checkPageHeight(10);
+            doc.text(line, margin, y);
+            y += 10;
+        });
+        y += 10;
+    };
 
-    // Agregar sección de enfermedad actual
-    doc.text('Enfermedad Actual', 20, 120);
-    doc.text(enfermedad_actual || '', 20, 130);
-
-    // Agregar sección de examen físico
-    doc.text('Examen Físico', 20, 160);
-    doc.text(examen_fisico || '', 20, 170);
-
-    // Agregar sección de diagnóstico
-    doc.text('Diagnóstico', 20, 200);
-    doc.text(diagnostico || '', 20, 210);
-
-    // Agregar sección de indicaciones
-    doc.text('Indicaciones', 20, 240);
-    doc.text(indicaciones || '', 20, 250);
+    // Agregar secciones al informe
+    addSection('Motivo de Consulta', motivo_consulta);
+    addSection('Anamnesis Actual', anamnesis_actual);
+    addSection('Cirugía', cirugia);
+    addSection('Examen Físico', examen_fisico);
+    addSection('Diagnóstico Médico', diagnostico_medico);
+    addSection('Indicaciones Médicas', indicaciones_medicas);
 
     // Agregar firma del médico centrada
-    doc.text('Dr. [Nombre del Médico]', 105, doc.internal.pageSize.height - 30, { align: 'center' });
-    doc.text('Traumatología y Ortopedia', 105, doc.internal.pageSize.height - 20, { align: 'center' });
+    checkPageHeight(20);
+    doc.text('Dr. [ZAUL CUELLO CAMPILLAY]', pageWidth / 2, y, { align: 'center' });
+    y += 10;
+    doc.text('Traumatología y Ortopedia', pageWidth / 2, y, { align: 'center' });
 
     // Guardar el documento PDF
     doc.save('InformeMedico.pdf');
 }
+
+
 
 export function descargarSesionesPDF() {
     const { jsPDF } = window.jspdf;
