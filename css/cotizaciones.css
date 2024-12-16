@@ -15,54 +15,13 @@ body {
 
 /* Estilo del contenedor principal */
 .container {
-    max-width: 500px;
-    width: 100%;
+    max-width: 40%;
+    width: 90%;
     background-color: rgba(230, 247, 255, 0.9); /* Fondo celeste semi-transparente */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-}
-
-/* Estilo del título */
-h1 {
-    color: #003366; /* Color de texto oscuro */
-    margin-bottom: 20px;
-}
-
-/* Estilo del formulario */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Estilo de las etiquetas */
-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-}
-
-/* Estilo de las casillas de verificación */
-input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background-color: #fff; /* Fondo blanco */
-    border: 2px solid #003366; /* Borde celeste oscuro */
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-input[type="checkbox"]:checked {
-    background-color: #4CAF50; /* Fondo verde cuando está seleccionado */
-    border-color: #4CAF50; /* Borde verde */
 }
 
 /* Estilo del botón */
@@ -81,55 +40,6 @@ button {
 
 button:hover {
     background-color: #002244; /* Fondo azul más oscuro al pasar el mouse */
-}
-
-/* Estilo del cuadro de confirmación */
-.confirmation-box {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid #4CAF50;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 100%;
-}
-
-/* Estilo del texto de confirmación */
-.confirmation-box h3 {
-    color: #003366;
-    margin-bottom: 10px;
-}
-
-.confirmation-box p {
-    color: #333;
-    font-size: 18px;
-}
-
-/* Estilo de los enlaces de navegación */
-.nav-link {
-    display: block;
-    text-align: center;
-    margin: 20px;
-    text-decoration: none;
-    color: #003366; /* Color azul oscuro */
-    padding: 10px 20px;
-    border: 2px solid #003366; /* Borde azul oscuro */
-    border-radius: 5px;
-    background-color: transparent;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.nav-link:hover {
-    background-color: #003366; /* Fondo azul oscuro al pasar el mouse */
-    color: white; /* Texto blanco */
-}
-
-.nav-link:focus {
-    outline: none;
-}
-
-.nav-link:active {
-    background-color: #002244; /* Fondo azul más oscuro al hacer clic */
 }
 
 /* Estilo del pie de página */
@@ -169,9 +79,9 @@ footer a:hover {
 }
 
 .image-container img {
-    max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    max-width: 50%; /* Ajusta la imagen al ancho del contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 10px; /* Borde redondeado para la imagen */
+    border-radius: 20px; /* Borde redondeado para la imagen */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para la imagen */
 }
 
