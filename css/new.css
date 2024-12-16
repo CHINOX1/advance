@@ -5,6 +5,9 @@ body {
     padding: 0;
 }
 
+h2{
+    color: white;
+}
 .main-header {
     background-color: rgba(230, 247, 255, 0.9);
     padding: 20px;
