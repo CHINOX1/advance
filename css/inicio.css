@@ -264,14 +264,15 @@ nav ul li a:hover {
 
 /* Estilos para el sidebar de comentarios */
 #comment-sidebar {
-    position: fixed; /* Fija el sidebar en la pantalla */
+    margin-left: 9%;
+    text-align: center;
+    position: flex ; /* Fija el sidebar en la pantalla */
     right: -300px; /* Inicialmente está fuera de la pantalla, a la derecha */
     top: 0; /* Se alinea con la parte superior de la pantalla */
-    width: 300px; /* Ancho del sidebar */
-    height: 100%; /* Altura completa de la pantalla */
+    width: 80%; /* Ancho del sidebar */
     background-color: rgba(230, 247, 255, 0.9); /* Fondo con un tono celeste */
     border-left: 1px solid #ccc; /* Borde a la izquierda del sidebar */
-    padding: 20px; /* Espaciado interno */
+    padding: 10px; /* Espaciado interno */
     transition: right 0.3s ease; /* Transición suave cuando se abre o cierra el sidebar */
     overflow-y: auto; /* Permite desplazamiento vertical si el contenido es largo */
     display: none; /* Inicialmente el sidebar está oculto */
@@ -282,6 +283,7 @@ nav ul li a:hover {
 /* Cuando el sidebar está abierto, se mueve a la derecha */
 #comment-sidebar.open {
     right: 0; /* Lo coloca completamente visible en la pantalla */
+    
 }
 
 /* Estilos para el botón de agregar comentario */
@@ -309,7 +311,7 @@ nav ul li a:hover {
     padding: 10px; /* Espaciado interno */
     border: 1px solid #ccc; /* Borde gris claro */
     border-radius: 5px; /* Bordes redondeados */
-    width: calc(100% - 20px); /* Ancho completo menos el espaciado interno */
+    width: calc(60% - 20px); /* Ancho completo menos el espaciado interno */
 }
 
 /* Estilos para el botón de envío del formulario */
