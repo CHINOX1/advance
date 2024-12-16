@@ -348,10 +348,11 @@ footer {
 /* Contenedor de los elementos del footer */
 .footer-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px; /* Espacio entre los elementos */
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 1200px; /* Aumento del ancho del contenedor */
+    gap: 30px;
 }
 
 /* Estilo de Certificaciones, Contacto y Sobre Nosotros */
@@ -477,13 +478,11 @@ body.fade-out {
 
 .card-front {
     background: #fff;
-    width: 80%;
-    padding: 2rem;
+   
 }
 
 .card-back {
     background: #fff;
-    padding: 2rem;
     transform: rotateY(180deg);
     text-align: center;
 }
