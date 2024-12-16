@@ -10,13 +10,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    
 }
 
 /* Estilo del contenedor principal */
 .container {
-    max-width: 40%;
-    width: 90%;
+    margin-top: 30px;
+    max-width:auto ;
+    width: 50%;
     background-color: rgba(230, 247, 255, 0.9); /* Fondo celeste semi-transparente */
     padding: 30px;
     border-radius: 10px;
