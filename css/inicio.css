@@ -187,6 +187,7 @@ nav ul li a:hover {
     perspective: 1000px;
     position: relative;
     cursor: pointer; /* Cursor de mano para indicar interactividad */
+    
 }
 
 .comment-inner {
@@ -476,10 +477,14 @@ body.fade-out {
 
 .card-front {
     background: #fff;
+    width: 80%;
+    padding: 2rem;
 }
 
 .card-back {
     background: #fff;
+   
+    padding: 2rem;
     transform: rotateY(180deg);
     text-align: center;
 }
