@@ -13,12 +13,12 @@
         <a href="index.html" class="nav-link">Regresar al inicio</a>
         <nav>
             <ul>
-                <li><a href="#terapia-ondas-choque">Ondas de Choque</a></li>
-                <li><a href="#electrolisis">Electrólisis</a></li>
-                <li><a href="#neuromodulacion">Neuromodulación</a></li>
-                <li><a href="#laser-alta-intensidad">Láser Alta Intensidad</a></li>
-                <li><a href="#radiofrecuencia">Radiofrecuencia</a></li>
-                <li><a href="#sistema-super-inductivo">SIS</a></li>
+                <li><a onclick="openModal('modal-1')"> Ondas de Choque</a></li>
+                <li><a onclick="openModal('modal-2')">Electrólisis</a></li>
+                <li><a onclick="openModal('modal-3')">Neuromodulación</a></li>
+                <li><a onclick="openModal('modal-4')">Láser Alta Intensidad</a></li>
+                <li><a onclick="openModal('modal-5')">Radiofrecuencia</a></li>
+                <li><a onclick="openModal('modal-6')">SIS</a></li>
             </ul>
         </nav>
     </header>
@@ -69,6 +69,10 @@
             <p>Tratamiento no invasivo.</p>
             <p>Son necesarias entre tres y cinco sesiones.</p>
             <p>Sin efectos secundarios.</p>
+            <div class="modal-nav">
+                <button onclick="changeModal('modal-6')">Anterior</button>
+                <button onclick="changeModal('modal-2')">Siguiente</button>
+            </div>
         </div>
     </div>
 
@@ -84,6 +88,10 @@
             <p>Roturas musculares agudas y crónicas.</p>
             <p>Puntos Gatillos Miofasciales.</p>
             <p>Esguince crónico de tobillo.</p>
+            <div class="modal-nav">
+                <button onclick="changeModal('modal-1')">Anterior</button>
+                <button onclick="changeModal('modal-3')">Siguiente</button>
+            </div>
         </div>
     </div>
 
@@ -98,6 +106,10 @@
             <p>Mejora de la función y calidad de vida.</p>
             <p>Tratamiento no invasivo.</p>
             <p>Procedimiento seguro y controlado.</p>
+            <div class="modal-nav">
+                <button onclick="changeModal('modal-2')">Anterior</button>
+                <button onclick="changeModal('modal-4')">Siguiente</button>
+            </div>
         </div>
     </div>
 
@@ -112,6 +124,10 @@
             <p>Estimulación de la regeneración celular.</p>
             <p>Mejora en la movilidad y función.</p>
             <p>Tratamiento rápido y efectivo.</p>
+            <div class="modal-nav">
+                <button onclick="changeModal('modal-3')">Anterior</button>
+                <button onclick="changeModal('modal-5')">Siguiente</button>
+            </div>
         </div>
     </div>
 
@@ -126,6 +142,10 @@
             <p>Reducción de la flacidez.</p>
             <p>Alivio del dolor muscular.</p>
             <p>Procedimiento no invasivo y seguro.</p>
+            <div class="modal-nav">
+                <button onclick="changeModal('modal-4')">Anterior</button>
+                <button onclick="changeModal('modal-6')">Siguiente</button>
+            </div>
         </div>
     </div>
 
@@ -140,16 +160,31 @@
             <p>Reducción del dolor y la inflamación.</p>
             <p>Mejora en la movilidad y función.</p>
             <p>Tratamiento no invasivo y seguro.</p>
+            <div class="modal-nav">
+                <button onclick="changeModal('modal-5')">Anterior</button>
+                <button onclick="changeModal('modal-1')">Siguiente</button>
+            </div>
         </div>
     </div>
 
     <script>
+        // Función para abrir un modal
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
         }
 
+        // Función para cerrar un modal
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
+        }
+
+        // Función para cambiar entre modales
+        function changeModal(modalId) {
+            const modals = document.getElementsByClassName('modal');
+            for (let i = 0; i < modals.length; i++) {
+                modals[i].style.display = "none"; // Cierra todos los modales
+            }
+            openModal(modalId); // Abre el modal seleccionado
         }
 
         // Cierra el modal si se hace clic fuera del contenido
@@ -164,3 +199,4 @@
     </script>
 </body>
 </html>
+

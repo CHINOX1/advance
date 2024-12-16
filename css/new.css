@@ -9,7 +9,7 @@ body {
     background-color: rgba(230, 247, 255, 0.9);
     padding: 20px;
     text-align: center;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 1000;
 }
@@ -149,4 +149,15 @@ body {
 
 .modal-content h2 {
     margin-top: 0;
+}
+.modal-nav button{
+    text-align: center;
+    background-color: #a1c4fdad;
+    padding: 1px 10px;
+    border-radius: 10px;
+    margin: 0 50px;
+    
+}
+.modal-nav{
+    text-align: center;
 }
