@@ -483,7 +483,6 @@ body.fade-out {
 
 .card-back {
     background: #fff;
-   
     padding: 2rem;
     transform: rotateY(180deg);
     text-align: center;
