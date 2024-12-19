@@ -5,7 +5,7 @@ body{
     text-align: center;
     background-color:#14202E;
     width: 100%;
-
+  
 }
 .arriba a{
     color: white;
@@ -104,9 +104,9 @@ nav ul li a:hover {
     justify-content: space-between; /* Separar elementos uniformemente */
     flex-wrap: wrap; /* Permitir que los elementos se acomoden en varias filas */
     margin: 20px ; /* Margen externo centrado */
-    margin-top: -45%;
+    margin-top: -43%;
     max-width: 60%; /* Ancho máximo del contenedor */
-    gap: 20px; /* Espaciado entre los elementos */
+    
 }
 
 /* Contenedor de secciones */
