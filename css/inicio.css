@@ -45,16 +45,16 @@ nav ul li a:hover {
 
 /* Estilos para el carrusel de imágenes */
 .carousel {
-    
     position: relative; /* Posicionar elementos internamente */
     overflow: hidden; /* Ocultar contenido desbordado */
     margin: 20px auto; /* Centrando el carrusel */
     width: 100%; /* Ancho máximo del carrusel */
-    height: 100%;
+    height: 94%;
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
-    border: solid 5px ;
+    border: solid ;
     border-color: #14202E;
+    flex-wrap: wrap;
 }
 
 .slide {
@@ -99,32 +99,49 @@ nav ul li a:hover {
 
 /* Estilos para los contenedores de secciones */
 .content {
-    
+ 
     display: flex; /* Flexbox para alinear elementos */
     justify-content: space-between; /* Separar elementos uniformemente */
     flex-wrap: wrap; /* Permitir que los elementos se acomoden en varias filas */
     margin: 20px ; /* Margen externo centrado */
-    margin-top: -43%;
     max-width: 60%; /* Ancho máximo del contenedor */
     
 }
-
-/* Contenedor de secciones */
-.section-container {
-    
-   
+.footer-container {
+    margin-left: 50%;
+    margin-top: -101.5%;
     flex-direction: column;
     display: flex; /* Flexbox para organización */
     flex-wrap: wrap; /* Permitir acomodar elementos en varias filas */
-    justify-content: left; /* Centrar elementos horizontalmente */
-    margin: 40px auto; /* Margen externo centrado */
-    max-width:10% ; /* Ancho máximo */
+    max-width:100% ; /* Ancho máximo */
     gap: 100px; /* Espaciado entre secciones */
-    margin-left: 75%;
-    padding-bottom: 10px;
     
-    
+
 }
+/* Contenedor de secciones */
+.section-containers {
+   
+    margin-top: 100px;
+    flex-direction: column;
+    display: flex; /* Flexbox para organización */
+    flex-wrap: wrap; /* Permitir acomodar elementos en varias filas */
+    justify-content: right; /* Centrar elementos horizontalmente */
+    max-width:100% ; /* Ancho máximo */
+    gap: 100px; /* Espaciado entre secciones */
+   
+}
+.columna {
+    
+    display: flex;
+    width:100% ;
+    margin-top: 10px;
+    justify-content:right;
+    
+ }
+ .vertebra{
+   
+     width: 40%;
+ }
 
 /* Estilos para las secciones específicas */
 .medical-results,
@@ -402,14 +419,7 @@ footer {
 }
 
 /* Contenedor de los elementos dentro del footer */
-.footer-container {
-    display: flex; /* Usamos flexbox para alinear los elementos */
-    flex-wrap: wrap; /* Permite que los elementos se ajusten cuando la pantalla es pequeña */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    margin: 40px auto;
-    max-width: 1200px; /* Limita el ancho del contenedor */
-    gap: 30px; /* Añade espacio entre los elementos */
-}
+
 
 /* Estilo para las secciones dentro del footer (Certificaciones, Contacto, Sobre Nosotros) */
 .certifications,
@@ -526,10 +536,6 @@ body.fade-out {
 }
 
 /* Estilos para la parte frontal de la carta */
-
-.footer-container{
-    gap: 100px;
-}
 
 .card-front,
 .card-back {

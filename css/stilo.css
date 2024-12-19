@@ -13,6 +13,7 @@ header {
     top: 0; /* Alinear la cabecera en la parte superior */
     left: 0;
     width: 100%;
+    height:30px;
     background-color: rgba(230, 247, 255, 0.8); /* Fondo semi-transparente para la cabecera */
     padding: 10px 20px;
     display: flex;
@@ -27,7 +28,7 @@ header {
 }
 
 .logo {
-    max-width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+    max-width: 90px; /* Ajusta el tamaño del logo según sea necesario */
 }
 
 nav {
