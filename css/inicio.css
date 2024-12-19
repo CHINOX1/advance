@@ -1,6 +1,16 @@
-/* Estilos para el logo */
-.logo img {
-    max-width: 100px; /* Limitar el ancho máximo de la imagen del logo */
+body{
+    background-color: #8badc3;
+}
+.arriba ul{
+    text-align: center;
+    background-color:#14202E;
+    width: 100%;
+
+}
+.arriba a{
+    color: white;
+    font-family: sans-serif;
+    padding-right: 10px;
 }
 
 /* Estilos para la barra de navegación */
@@ -35,12 +45,16 @@ nav ul li a:hover {
 
 /* Estilos para el carrusel de imágenes */
 .carousel {
+    
     position: relative; /* Posicionar elementos internamente */
     overflow: hidden; /* Ocultar contenido desbordado */
     margin: 20px auto; /* Centrando el carrusel */
-    max-width: 1000px; /* Ancho máximo del carrusel */
+    width: 100%; /* Ancho máximo del carrusel */
+    height: 100%;
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    border: solid 5px ;
+    border-color: #14202E;
 }
 
 .slide {
@@ -59,6 +73,7 @@ nav ul li a:hover {
 }
 
 .carousel-nav {
+    
     position: absolute; /* Posición fija dentro del carrusel */
     top: 50%; /* Centrar verticalmente */
     width: 100%; /* Ancho completo del carrusel */
@@ -69,7 +84,7 @@ nav ul li a:hover {
 }
 
 .carousel-nav button {
-    background-color: rgba(0, 123, 255, 0.8); /* Fondo celeste claro */
+    background-color: #14202E; /* Fondo celeste claro */
     color: white; /* Texto blanco */
     border: none; /* Sin borde */
     padding: 10px 15px; /* Relleno interno para mayor clicabilidad */
@@ -84,23 +99,31 @@ nav ul li a:hover {
 
 /* Estilos para los contenedores de secciones */
 .content {
+    
     display: flex; /* Flexbox para alinear elementos */
     justify-content: space-between; /* Separar elementos uniformemente */
-    align-items: flex-start; /* Alinear al inicio verticalmente */
     flex-wrap: wrap; /* Permitir que los elementos se acomoden en varias filas */
-    margin: 20px auto; /* Margen externo centrado */
-    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 20px ; /* Margen externo centrado */
+    margin-top: -45%;
+    max-width: 60%; /* Ancho máximo del contenedor */
     gap: 20px; /* Espaciado entre los elementos */
 }
 
 /* Contenedor de secciones */
 .section-container {
+    
+   
+    flex-direction: column;
     display: flex; /* Flexbox para organización */
     flex-wrap: wrap; /* Permitir acomodar elementos en varias filas */
-    justify-content: center; /* Centrar elementos horizontalmente */
+    justify-content: left; /* Centrar elementos horizontalmente */
     margin: 40px auto; /* Margen externo centrado */
-    max-width: 1200px; /* Ancho máximo */
-    gap: 30px; /* Espaciado entre secciones */
+    max-width:10% ; /* Ancho máximo */
+    gap: 100px; /* Espaciado entre secciones */
+    margin-left: 75%;
+    padding-bottom: 10px;
+    
+    
 }
 
 /* Estilos para las secciones específicas */
@@ -155,9 +178,11 @@ nav ul li a:hover {
     margin: 40px auto; /* Centrando la sección con margen */
     padding: 20px; /* Relleno interno */
     border: 1px solid #ccc; /* Borde gris claro */
-    background-color: rgba(230, 247, 255, 0.9); /* Fondo celeste claro con opacidad */
+    border-left: none;
+    border-right: none;
+    background-color: #14202e1c; /* Fondo celeste claro con opacidad */
     position: relative; /* Posicionamiento relativo para los elementos internos */
-    max-width: 1200px; /* Ancho máximo de la sección */
+    max-width: 100%; /* Ancho máximo de la sección */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidad */
     border-radius: 10px; /* Bordes redondeados */
     text-align: center; /* Centrar el texto */
@@ -165,9 +190,10 @@ nav ul li a:hover {
 
 /* Estilos para el título dentro de la sección de comentarios */
 .comments-section h2 {
-    color: #007bff; /* Color celeste para el título */
+    font-family: 'Lato', sans-serif;
+    color: white; /* Color celeste para el título */
     margin-bottom: 20px; /* Espacio debajo del título */
-    font-size: 28px; /* Tamaño grande para el título */
+    font-size: 30px; /* Tamaño grande para el título */
 }
 
 /* Estilos para el contenedor de comentarios */
@@ -216,7 +242,7 @@ nav ul li a:hover {
     width: 100%; /* Ancho completo */
     height: 100%; /* Alto completo */
     backface-visibility: hidden; /* Oculta el reverso cuando la tarjeta está volteada */
-    border: 2px solid #007bff; /* Borde celeste alrededor de la tarjeta */
+    border: 4px solid; /* Borde celeste alrededor de la tarjeta */
     border-radius: 10px; /* Bordes redondeados */
     background-color: #fff; /* Fondo blanco para la tarjeta */
 }
@@ -269,8 +295,9 @@ nav ul li a:hover {
     position: flex ; /* Fija el sidebar en la pantalla */
     right: -300px; /* Inicialmente está fuera de la pantalla, a la derecha */
     top: 0; /* Se alinea con la parte superior de la pantalla */
+    height: 250px;
     width: 80%; /* Ancho del sidebar */
-    background-color: rgba(230, 247, 255, 0.9); /* Fondo con un tono celeste */
+    background-color:#14202e1c; /* Fondo con un tono celeste */
     border-left: 1px solid #ccc; /* Borde a la izquierda del sidebar */
     padding: 10px; /* Espaciado interno */
     transition: right 0.3s ease; /* Transición suave cuando se abre o cierra el sidebar */
@@ -278,6 +305,9 @@ nav ul li a:hover {
     display: none; /* Inicialmente el sidebar está oculto */
     box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2); /* Sombra hacia la izquierda */
     border-radius: 10px; /* Bordes redondeados */
+}
+#comment-sidebar h2{
+    color: white;
 }
 
 /* Cuando el sidebar está abierto, se mueve a la derecha */
@@ -288,7 +318,7 @@ nav ul li a:hover {
 
 /* Estilos para el botón de agregar comentario */
 #add-comment-btn {
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb); /* Gradiente de fondo */
+    background: linear-gradient(135deg, #2b4257, #c2e9fb); /* Gradiente de fondo */
     color: #fff; /* Color blanco para el texto */
     border: none; /* Sin borde */
     padding: 12px 18px; /* Espaciado interno */
@@ -316,7 +346,7 @@ nav ul li a:hover {
 
 /* Estilos para el botón de envío del formulario */
 #comment-form button {
-    background-color: rgba(0, 123, 255, 0.8); /* Fondo celeste translúcido */
+    background: linear-gradient(135deg, #2b4257, #c2e9fb); /* Fondo celeste translúcido */
     color: black; /* Color de texto negro */
     border: none; /* Sin borde */
     padding: 10px 15px; /* Espaciado interno */
@@ -362,10 +392,10 @@ nav ul li a:hover {
 
 /* Estilos para el footer */
 footer {
-    background-color: rgba(230, 247, 255, 0.9); /* Fondo celeste claro */
+    background-color: #14202e1c; /* Fondo celeste claro */
     padding: 30px 20px; /* Ajusta el padding para un mejor espaciado */
     margin: 40px auto;
-    max-width: 1200px; /* Limita el ancho del footer */
+    max-width: 100%; /* Limita el ancho del footer */
     border-radius: 15px; /* Bordes redondeados */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
     text-align: center; /* Centra el contenido dentro del footer */
@@ -393,8 +423,9 @@ footer {
 .certifications h2,
 .contact h2,
 .about h2 {
-    color: #007bff; /* Color azul para los títulos */
+   
     font-size: 24px; /* Tamaño de fuente */
+    font-family: sans-serif;
     margin-bottom: 10px; /* Espacio debajo del título */
 }
 
@@ -476,7 +507,7 @@ body.fade-out {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
     perspective: 1000px; /* Agrega una perspectiva 3D */
     width: 300px; /* Ancho fijo de la carta */
-    height: 200px; /* Altura fija de la carta */
+    height: 170px; /* Altura fija de la carta */
     overflow: hidden; /* Asegura que el contenido no se salga de la carta */
 }
 
@@ -495,6 +526,11 @@ body.fade-out {
 }
 
 /* Estilos para la parte frontal de la carta */
+
+.footer-container{
+    gap: 100px;
+}
+
 .card-front,
 .card-back {
     position: absolute;
@@ -507,6 +543,7 @@ body.fade-out {
     justify-content: center; /* Centra el contenido horizontalmente */
     padding: 20px; /* Añade espacio interior */
     box-sizing: border-box; /* Incluye el padding en el tamaño total */
+    
 }
 
 /* Estilos para la parte delantera de la carta */
@@ -532,19 +569,22 @@ body.fade-out {
 .card h2,
 .card p {
     margin: 0; /* Elimina el margen por defecto para evitar espacios innecesarios */
+    font-family: sans-serif;
 }
 
 /* Estilos para los títulos dentro de las cartas */
 .card h2 {
-    color: #007bff; /* Color azul claro para el título */
+    color: #8b9fc3; /* Color azul claro para el título */
     font-size: 22px; /* Tamaño de fuente para el título */
     margin-bottom: 10px; /* Espaciado debajo del título para separar del contenido */
+    font-family: sans-serif;
 }
 
 /* Estilos para los párrafos dentro de las cartas */
 .card p {
-    color: #333; /* Color gris oscuro para el texto */
+    color: black; /* Color gris oscuro para el texto */
     font-size: 16px; /* Tamaño de fuente para el texto */
+    font-family: sans-serif;
 }
 
 /* Estilos para el enlace dentro de la carta */
@@ -557,6 +597,7 @@ body.fade-out {
     transition: background 0.3s, color 0.3s; /* Transición suave para cambios de color y fondo */
     margin-top: 10px; /* Espaciado superior para separar el enlace de otros elementos */
     display: block; /* Hace que el enlace ocupe todo el ancho disponible en la carta */
+    font-family: sans-serif;
 }
 
 /* Efecto hover sobre el enlace dentro de la carta */
@@ -573,6 +614,7 @@ body.fade-out {
     padding: 10px 20px; /* Espaciado interno (relleno) */
     border-radius: 5px; /* Bordes redondeados para el enlace */
     transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de fondo y color */
+    font-family: sans-serif;
 }
 
 /* Efectos de hover y focus para los enlaces */
@@ -584,15 +626,15 @@ body.fade-out {
 
 /* Estilos para la vista previa del GIF */
 #gif-preview {
-    margin-top: 15px; /* Espaciado superior para separar la vista previa del GIF */
+    margin-top: 5px; /* Espaciado superior para separar la vista previa del GIF */
     text-align: center; /* Centra la imagen dentro del contenedor */
 }
 
 /* Estilos para la imagen del GIF */
 #gif-preview img {
     width: 100%; /* La imagen ocupa el 100% del contenedor disponible */
-    max-width: 200px; /* Limita el ancho máximo de la imagen a 200px */
-    height: auto; /* Mantiene la proporción de la imagen */
+    max-width: 150px; /* Limita el ancho máximo de la imagen a 200px */
+    height: 100px; /* Mantiene la proporción de la imagen */
     border-radius: 10px; /* Bordes redondeados para la imagen */
     border: 1px solid #ccc; /* Borde gris claro alrededor de la imagen */
 }
