@@ -1,147 +1,288 @@
-body{
+/* 
+Estilo general para el cuerpo:
+- Se establece un fondo azul (#8badc3).
+- Se eliminan márgenes y rellenos por defecto.
+- Se usa una fuente sans-serif para todo el documento.
+*/
+body {
     background-color: #8badc3;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
-.arriba ul{
+
+/* 
+Barra de navegación:
+- Se alinea el texto al centro.
+- Fondo oscuro (#14202E) para toda la barra.
+- Se eliminan márgenes y rellenos.
+*/
+.arriba ul {
     text-align: center;
-    background-color:#14202E;
+    background-color: #14202E;
     width: 100%;
-  
+    padding: 0;
+    margin: 0;
 }
-.arriba a{
+
+/* 
+Enlaces dentro de la barra:
+- Texto blanco con un pequeño relleno.
+*/
+.arriba a {
     color: white;
     font-family: sans-serif;
-    padding-right: 10px;
+    padding: 10px;
 }
 
-/* Estilos para la barra de navegación */
+/* 
+Estilo para la lista de navegación:
+- Se eliminan viñetas, márgenes y rellenos.
+- Uso de Flexbox para centrar elementos horizontalmente.
+- Fondo blanco con sombra y bordes redondeados.
+*/
 nav ul {
-    list-style-type: none; /* Quitar los puntos de la lista */
-    margin: 0; /* Quitar el margen externo */
-    padding: 0; /* Quitar el relleno interno */
-    display: flex; /* Usar flexbox para alinear elementos horizontalmente */
-    justify-content: center; /* Centrar los elementos dentro del contenedor */
-    background-color: #fff; /* Fondo blanco */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Ocultar contenido desbordado */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
+/* 
+Estilo individual de los elementos de la lista:
+- Espaciado horizontal entre los elementos.
+*/
 nav ul li {
-    margin-right: 20px; /* Espaciado entre elementos de la lista */
+    margin: 0 10px;
 }
 
+/* 
+Enlaces en la lista de navegación:
+- Sin subrayado, color oscuro (#333), texto en negrita.
+- Efecto de transición para cambiar de color al pasar el cursor.
+*/
 nav ul li a {
-    text-decoration: none; /* Quitar subrayado de los enlaces */
-    color: #333; /* Color del texto en gris oscuro */
-    font-weight: bold; /* Texto en negrita */
-    font-size: 16px; /* Tamaño de fuente */
-    padding: 10px 15px; /* Relleno interno para mayor clicabilidad */
-    transition: color 0.3s; /* Efecto de transición al cambiar el color */
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s;
 }
 
+/* 
+Hover en los enlaces de navegación:
+- Color azul claro al pasar el cursor.
+*/
 nav ul li a:hover {
-    color: rgba(0, 123, 255, 0.8); /* Color celeste claro al pasar el cursor */
+    color: rgba(0, 123, 255, 0.8);
 }
 
-/* Estilos para el carrusel de imágenes */
+/* 
+Carrusel:
+- Contenedor centralizado, con bordes redondeados y sombra.
+- El borde tiene un color oscuro (#14202E).
+*/
 .carousel {
-    position: relative; /* Posicionar elementos internamente */
-    overflow: hidden; /* Ocultar contenido desbordado */
-    margin: 20px auto; /* Centrando el carrusel */
-    width: 100%; /* Ancho máximo del carrusel */
-    height: 94%;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
-    border: solid ;
-    border-color: #14202E;
-    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: solid 2px #14202E;
 }
 
+/* 
+Diapositivas del carrusel:
+- Ocultas por defecto, pero activas con la clase `active`.
+*/
 .slide {
-    display: none; /* Ocultar diapositivas por defecto */
-    width: 100%; /* Asegurar que ocupen el ancho completo del carrusel */
+    display: none;
+    width: 100%;
 }
 
 .slide.active {
-    display: block; /* Mostrar únicamente la diapositiva activa */
+    display: block;
 }
 
+/* 
+Imágenes del carrusel:
+- Escaladas al ancho completo, con bordes redondeados.
+*/
 .carousel img {
-    width: 100%; /* Imagen adaptada al ancho del carrusel */
-    height: auto; /* Mantener la proporción de la imagen */
-    border-radius: 10px; /* Bordes redondeados de las imágenes */
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
+/* 
+Navegación del carrusel:
+- Botones posicionados en el centro vertical de los lados.
+*/
 .carousel-nav {
-    
-    position: absolute; /* Posición fija dentro del carrusel */
-    top: 50%; /* Centrar verticalmente */
-    width: 100%; /* Ancho completo del carrusel */
-    display: flex; /* Flexbox para posicionar los botones */
-    justify-content: space-between; /* Botones en extremos opuestos */
-    transform: translateY(-50%); /* Ajustar al centro vertical */
-    padding: 0 10px; /* Espaciado interno lateral */
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 10px;
 }
 
+/* 
+Botones de navegación del carrusel:
+- Fondo oscuro (#14202E), texto blanco.
+- Bordes redondeados con sombra y transición de color al pasar el cursor.
+*/
 .carousel-nav button {
-    background-color: #14202E; /* Fondo celeste claro */
-    color: white; /* Texto blanco */
-    border: none; /* Sin borde */
-    padding: 10px 15px; /* Relleno interno para mayor clicabilidad */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Mostrar el cursor de mano al pasar el ratón */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para efecto 3D */
+    background-color: #14202E;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
 }
 
 .carousel-nav button:hover {
-    background-color: rgba(0, 123, 255, 1); /* Fondo celeste más intenso al pasar el cursor */
+    background-color: rgba(0, 123, 255, 1);
 }
 
-/* Estilos para los contenedores de secciones */
+/* 
+Contenedor de contenido:
+- Uso de Flexbox para dividir elementos en fila con espacio entre ellos.
+- Admite ajuste en varias líneas para pantallas pequeñas.
+*/
 .content {
- 
-    display: flex; /* Flexbox para alinear elementos */
-    justify-content: space-between; /* Separar elementos uniformemente */
-    flex-wrap: wrap; /* Permitir que los elementos se acomoden en varias filas */
-    margin: 20px ; /* Margen externo centrado */
-    max-width: 60%; /* Ancho máximo del contenedor */
-    
+   
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 80%;
 }
-.footer-container {
-    margin-left: 50%;
-    margin-top: -101.5%;
-    flex-direction: column;
-    display: flex; /* Flexbox para organización */
-    flex-wrap: wrap; /* Permitir acomodar elementos en varias filas */
-    max-width:100% ; /* Ancho máximo */
-    gap: 100px; /* Espaciado entre secciones */
-    
 
-}
-/* Contenedor de secciones */
+/* 
+Contenedores de pie de página y secciones:
+- Estructura en columna con espacio entre elementos.
+*/
+
 .section-containers {
-   
-    margin-top: 100px;
-    flex-direction: column;
-    display: flex; /* Flexbox para organización */
-    flex-wrap: wrap; /* Permitir acomodar elementos en varias filas */
-    justify-content: right; /* Centrar elementos horizontalmente */
-    max-width:100% ; /* Ancho máximo */
-    gap: 100px; /* Espaciado entre secciones */
-   
-}
-.columna {
+
     
     display: flex;
-    width:100% ;
-    margin-top: 10px;
-    justify-content:right;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 70px auto;
+    max-width: 100%;
+    gap: 20px;
+}
+.footer-container{
     
- }
- .vertebra{
-   
-     width: 40%;
- }
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin:-570px auto  auto 350px;
+    max-width: 100%;
+    gap: 20px;
+    
+
+}
+
+/* 
+Columnas internas:
+- Estructura en fila, con espacio en el lado izquierdo.
+*/
+.columna {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: flex-start;
+}
+
+/* 
+Elementos dentro de las columnas:
+- Ancho del 40% para un elemento "vertebra".
+*/
+.vertebra {
+    width: 40%;
+}
+
+/* 
+Media Queries para pantallas medianas (máximo 1024px):
+- El contenido se convierte en columna.
+- Se reduce el espacio entre elementos.
+*/
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .footer-container,
+    .section-containers {
+        gap: 15px;
+    }
+}
+
+/* 
+Media Queries para pantallas pequeñas (máximo 768px):
+- Navegación y carrusel se ajustan al ancho completo.
+- Columnas se convierten en columnas verticales.
+*/
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .columna {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vertebra {
+        width: 100%;
+    }
+}
+
+/* 
+Media Queries para pantallas muy pequeñas (máximo 480px):
+- Se ajusta el tamaño de fuente y relleno de elementos.
+- El margen del contenido se reduce.
+*/
+@media (max-width: 480px) {
+    nav ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .carousel-nav button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .content {
+        margin: 10px auto;
+    }
+}
+
 
 /* Estilos para las secciones específicas */
 .medical-results,
