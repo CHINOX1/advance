@@ -89,14 +89,13 @@ Carrusel:
 - El borde tiene un color oscuro (#14202E).
 */
 .carousel {
-    
     position: relative;
     overflow: hidden;
     margin: 20px 30px;
     width: 100%;
-    border-radius: 100px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border: solid 5px #14202E;
+    border-radius: 50px;
+    
+   
 }
 
 /* 
@@ -120,6 +119,7 @@ Imágenes del carrusel:
     width: 100%;
     height: auto;
     border-radius: 10px;
+    
 }
 
 /* 
@@ -162,15 +162,28 @@ Contenedor de contenido:
 - Admite ajuste en varias líneas para pantallas pequeñas.
 */
 .content {
-  
-   margin-top: 20px;
+   
+    margin-top: -40px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-left: 100px;
-    max-width: 90%;
-}
+    max-width: 40%;
 
+}
+/* Estilos para la sección de comentarios */
+.comments-section {
+    margin-top: 600px;
+    padding: 20px; /* Relleno interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-left: none;
+    border-right: none;
+    background-color: #14202e1c; /* Fondo celeste claro con opacidad */
+    position: absolute; /* Posicionamiento relativo para los elementos internos */
+    max-width: 100%; /* Ancho máximo de la sección */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidad */
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center; /* Centrar el texto */
+}
 /* 
 Contenedores de pie de página y secciones:
 - Estructura en columna con espacio entre elementos.
@@ -202,12 +215,10 @@ Columnas internas:
 - Estructura en fila, con espacio en el lado izquierdo.
 */
 .columna {
-
     
     display: flex;
     width: 100%;
     margin-top: 100px;
-    margin-left: -100px;
     justify-content: flex-start;
 }
 
@@ -216,9 +227,10 @@ Elementos dentro de las columnas:
 - Ancho del 40% para un elemento "vertebra".
 */
 .vertebra {
-   
-    margin-right: 100px;
-    margin-top: 60px;
+    
+    
+    margin-left: 150px;
+    margin-top: -50px;
     width: 40%;
 }
 
@@ -336,21 +348,7 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
     transform: scale(1.05); /* Aumentar el tamaño del botón ligeramente */
 }
 
-/* Estilos para la sección de comentarios */
-.comments-section {
 
-    margin: 250px auto; /* Centrando la sección con margen */
-    padding: 20px; /* Relleno interno */
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-left: none;
-    border-right: none;
-    background-color: #14202e1c; /* Fondo celeste claro con opacidad */
-    position: relative; /* Posicionamiento relativo para los elementos internos */
-    max-width: 90%; /* Ancho máximo de la sección */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidad */
-    border-radius: 10px; /* Bordes redondeados */
-    text-align: center; /* Centrar el texto */
-}
 
 /* Estilos para el título dentro de la sección de comentarios */
 .comments-section h2 {
@@ -376,6 +374,7 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
 
 /* Estilo para cada tarjeta de comentario */
 .comment {
+   
     min-width: 300px; /* Ancho mínimo de cada tarjeta */
     height: 100px; /* Altura de la tarjeta */
     margin: 0 15px; /* Espacio a los lados entre las tarjetas */
@@ -459,8 +458,8 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
     position: flex ; /* Fija el sidebar en la pantalla */
     right: -300px; /* Inicialmente está fuera de la pantalla, a la derecha */
     top: 0; /* Se alinea con la parte superior de la pantalla */
-    height: 250px;
-    width: 80%; /* Ancho del sidebar */
+    height: 500px;
+    width: 3000px; /* Ancho del sidebar */
     background-color:#14202e1c; /* Fondo con un tono celeste */
     border-left: 1px solid #ccc; /* Borde a la izquierda del sidebar */
     padding: 10px; /* Espaciado interno */
@@ -468,7 +467,7 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
     overflow-y: auto; /* Permite desplazamiento vertical si el contenido es largo */
     display: none; /* Inicialmente el sidebar está oculto */
     box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2); /* Sombra hacia la izquierda */
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 50px; /* Bordes redondeados */
 }
 #comment-sidebar h2{
     color: white;
@@ -556,9 +555,10 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
 
 /* Estilos para el footer */
 footer {
+    position: flex;
     background-color: #14202e1c; /* Fondo celeste claro */
     padding: 30px 20px; /* Ajusta el padding para un mejor espaciado */
-    margin: 40px auto;
+    margin-top: 500px;
     max-width: 100%; /* Limita el ancho del footer */
     border-radius: 15px; /* Bordes redondeados */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
@@ -660,7 +660,7 @@ body.fade-out {
 /* Estilos para las cartas */
 .card {
     background: #fff; /* Fondo blanco para la carta */
-    border-radius: 15px; /* Bordes redondeados */
+    border-radius: 50px; /* Bordes redondeados */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
     perspective: 1000px; /* Agrega una perspectiva 3D */
     width: 300px; /* Ancho fijo de la carta */
@@ -670,6 +670,7 @@ body.fade-out {
 
 /* Estilo de la parte interna de la carta */
 .card-inner {
+    
     position: relative;
     width: 100%;
     height: 100%;
@@ -706,6 +707,7 @@ body.fade-out {
 
 /* Estilos para la parte trasera de la carta */
 .card-back {
+   
     background: #fff; /* Fondo blanco */
     transform: rotateY(180deg); /* Rota 180 grados para que quede del lado opuesto */
     text-align: center; /* Centra el texto dentro de la parte trasera */
