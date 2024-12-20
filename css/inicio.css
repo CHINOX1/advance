@@ -165,16 +165,16 @@ Contenedor de contenido:
 
 .content {
     margin-left: 100px;
-    margin-top: -40px;
+    margin-top: -60px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 40%;
+    max-width: 100%;
 
 }
 /* Estilos para la sección de comentarios */
 .comments-section {
-    margin-top: 600px;
+    margin-top: 800px;
     padding: 20px; /* Relleno interno */
     border: 1px solid #ccc; /* Borde gris claro */
     border-left: none;
@@ -229,8 +229,6 @@ Elementos dentro de las columnas:
 - Ancho del 40% para un elemento "vertebra".
 */
 .vertebra {
-    
-    
     margin-left: 150px;
     margin-top: -50px;
     width: 40%;
@@ -467,10 +465,10 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
 
 /* Estilos para el sidebar de comentarios */
 #comment-sidebar {
-    margin-top: -50px;
+    margin-top: 80px;
     margin-left: 9%;
     text-align: center;
-    position: flex ; /* Fija el sidebar en la pantalla */
+    position: absolute ; /* Fija el sidebar en la pantalla */
     right: -300px; /* Inicialmente está fuera de la pantalla, a la derecha */
     top: 0; /* Se alinea con la parte superior de la pantalla */
     height: 600px;
@@ -572,7 +570,7 @@ footer {
     position: flex;
     background-color: #14202e1c; /* Fondo celeste claro */
     padding: 30px 20px; /* Ajusta el padding para un mejor espaciado */
-    margin-top: 500px;
+    margin-top: 1000px;
     max-width: 100%; /* Limita el ancho del footer */
     border-radius: 15px; /* Bordes redondeados */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
