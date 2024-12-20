@@ -89,6 +89,7 @@ Carrusel:
 - El borde tiene un color oscuro (#14202E).
 */
 .carousel {
+    
     position: relative;
     overflow: hidden;
     margin: 20px 30px;
@@ -161,8 +162,9 @@ Contenedor de contenido:
 - Uso de Flexbox para dividir elementos en fila con espacio entre ellos.
 - Admite ajuste en varias líneas para pantallas pequeñas.
 */
+
 .content {
-   
+    margin-left: 100px;
     margin-top: -40px;
     display: flex;
     justify-content: space-between;
@@ -179,7 +181,7 @@ Contenedor de contenido:
     border-right: none;
     background-color: #14202e1c; /* Fondo celeste claro con opacidad */
     position: absolute; /* Posicionamiento relativo para los elementos internos */
-    max-width: 100%; /* Ancho máximo de la sección */
+    max-width: 98%; /* Ancho máximo de la sección */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidad */
     border-radius: 10px; /* Bordes redondeados */
     text-align: center; /* Centrar el texto */
@@ -357,7 +359,16 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
     margin-bottom: 20px; /* Espacio debajo del título */
     font-size: 30px; /* Tamaño grande para el título */
 }
+.comment-back h3{
+    border-bottom: solid;
+    border-radius: 50px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+.comment-back P{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
+}
 /* Estilos para el contenedor de comentarios */
 #comments-container {
     position: relative; /* Posicionamiento relativo para elementos internos */
@@ -376,7 +387,7 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
 .comment {
    
     min-width: 300px; /* Ancho mínimo de cada tarjeta */
-    height: 100px; /* Altura de la tarjeta */
+    height: 120px; /* Altura de la tarjeta */
     margin: 0 15px; /* Espacio a los lados entre las tarjetas */
     box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
     perspective: 1000px; /* Agrega perspectiva 3D */
@@ -406,7 +417,7 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
     height: 100%; /* Alto completo */
     backface-visibility: hidden; /* Oculta el reverso cuando la tarjeta está volteada */
     border: 4px solid; /* Borde celeste alrededor de la tarjeta */
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 50px; /* Bordes redondeados */
     background-color: #fff; /* Fondo blanco para la tarjeta */
 }
 
@@ -427,10 +438,11 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
 
 /* Estilo para la imagen en la parte frontal de la tarjeta */
 .comment-front img {
-    width: 50%; /* La imagen ocupa la mitad del tamaño de la tarjeta */
+    width: auto; /* La imagen ocupa la mitad del tamaño de la tarjeta */
     height: 100%; /* La imagen ocupa toda la altura de la tarjeta */
     object-fit: cover; /* Mantiene la relación de aspecto de la imagen */
     border-radius: 10px; /* Bordes redondeados para la imagen */
+    
 }
 
 /* Estilo para los elementos dentro del reverso de la tarjeta */
@@ -447,19 +459,21 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
 
 /* Estilo para las etiquetas dentro de la selección de GIFs */
 .gif-selection label {
+
     display: block; /* Las etiquetas se muestran como bloques */
-    margin-bottom: 5px; /* Añade espacio debajo de cada etiqueta */
+    margin-bottom: 5px;/* Añade espacio debajo de cada etiqueta */
+  
 }
 
 /* Estilos para el sidebar de comentarios */
 #comment-sidebar {
+    margin-top: -50px;
     margin-left: 9%;
     text-align: center;
     position: flex ; /* Fija el sidebar en la pantalla */
     right: -300px; /* Inicialmente está fuera de la pantalla, a la derecha */
     top: 0; /* Se alinea con la parte superior de la pantalla */
-    height: 500px;
-    width: 3000px; /* Ancho del sidebar */
+    height: 600px;
     background-color:#14202e1c; /* Fondo con un tono celeste */
     border-left: 1px solid #ccc; /* Borde a la izquierda del sidebar */
     padding: 10px; /* Espaciado interno */
