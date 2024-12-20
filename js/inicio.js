@@ -159,6 +159,7 @@ $(document).ready(function() {
 document.addEventListener("DOMContentLoaded", function() {
     const addCommentBtn = document.getElementById("add-comment-btn");
     const commentSidebar = document.getElementById("comment-sidebar");
+    const carousel = document.querySelector(".carousel"); // Selecciona el carrusel
 
     addCommentBtn.addEventListener("click", function() {
         if (commentSidebar.classList.contains("open")) {
@@ -167,12 +168,14 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => {
                 commentSidebar.style.display = "none"; // Oculta el sidebar después de la animación
             }, 300); // Tiempo de la transición
+            carousel.style.display = "block"; // Vuelve a mostrar el carrusel
         } else {
             // Si el sidebar está cerrado, ábrelo
             commentSidebar.style.display = "block"; // Muestra el sidebar
             setTimeout(() => {
                 commentSidebar.classList.add("open");
             }, 10); // Pequeño retraso para asegurarse de que la transición se aplique
+            carousel.style.display = "none"; // Oculta el carrusel
         }
     });
 });
