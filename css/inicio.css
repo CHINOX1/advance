@@ -5,7 +5,7 @@ Estilo general para el cuerpo:
 - Se usa una fuente sans-serif para todo el documento.
 */
 body {
-    background-color: #8badc3;
+    background-color: #2992d86b;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -89,15 +89,14 @@ Carrusel:
 - El borde tiene un color oscuro (#14202E).
 */
 .carousel {
+    
     position: relative;
     overflow: hidden;
-    margin: 20px auto;
+    margin: 20px 30px;
     width: 100%;
-    max-width: 1200px;
-    height: 600px;
-    border-radius: 10px;
+    border-radius: 100px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border: solid 2px #14202E;
+    border: solid 5px #14202E;
 }
 
 /* 
@@ -163,12 +162,13 @@ Contenedor de contenido:
 - Admite ajuste en varias líneas para pantallas pequeñas.
 */
 .content {
-   
+  
+   margin-top: 20px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 20px auto;
-    max-width: 80%;
+    margin-left: 100px;
+    max-width: 90%;
 }
 
 /* 
@@ -182,7 +182,6 @@ Contenedores de pie de página y secciones:
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 70px auto;
     max-width: 100%;
     gap: 20px;
 }
@@ -191,7 +190,7 @@ Contenedores de pie de página y secciones:
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin:-570px auto  auto 350px;
+    margin:-570px  350px;
     max-width: 100%;
     gap: 20px;
     
@@ -203,9 +202,12 @@ Columnas internas:
 - Estructura en fila, con espacio en el lado izquierdo.
 */
 .columna {
+
+    
     display: flex;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 100px;
+    margin-left: -100px;
     justify-content: flex-start;
 }
 
@@ -214,6 +216,9 @@ Elementos dentro de las columnas:
 - Ancho del 40% para un elemento "vertebra".
 */
 .vertebra {
+   
+    margin-right: 100px;
+    margin-top: 60px;
     width: 40%;
 }
 
@@ -333,14 +338,15 @@ Media Queries para pantallas muy pequeñas (máximo 480px):
 
 /* Estilos para la sección de comentarios */
 .comments-section {
-    margin: 40px auto; /* Centrando la sección con margen */
+
+    margin: 250px auto; /* Centrando la sección con margen */
     padding: 20px; /* Relleno interno */
     border: 1px solid #ccc; /* Borde gris claro */
     border-left: none;
     border-right: none;
     background-color: #14202e1c; /* Fondo celeste claro con opacidad */
     position: relative; /* Posicionamiento relativo para los elementos internos */
-    max-width: 100%; /* Ancho máximo de la sección */
+    max-width: 90%; /* Ancho máximo de la sección */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidad */
     border-radius: 10px; /* Bordes redondeados */
     text-align: center; /* Centrar el texto */
