@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
             commentSidebar.classList.remove("open");
             setTimeout(() => {
                 commentSidebar.style.display = "none"; // Oculta el sidebar después de la animación
-            }, 300); // Tiempo de la transición
+            }, 0); // Tiempo de la transición
             carousel.style.display = "block"; // Vuelve a mostrar el carrusel
         } else {
             // Si el sidebar está cerrado, ábrelo
